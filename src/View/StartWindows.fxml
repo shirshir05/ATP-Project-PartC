@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartWindowsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartWindowsController">
    <children>
       <Pane layoutX="5.0" prefHeight="402.0" prefWidth="590.0">
          <children>
@@ -22,9 +22,11 @@
                         <HBox layoutX="428.0" layoutY="277.0" prefHeight="63.0" prefWidth="162.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#startGame" prefHeight="62.0" prefWidth="164.0" text="START PALY" />
+
+
                            </children>
                         </HBox>
-                        <Label alignment="CENTER" layoutX="47.0" layoutY="14.0" prefHeight="156.0" prefWidth="473.0" text="היה היה פעם בארץ רחוקה" />
+                        <Label alignment="CENTER" layoutX="47.0" layoutY="14.0" prefHeight="156.0" prefWidth="473.0" text="jhgj" />
                      </children>
                   </Pane>
                </center>
