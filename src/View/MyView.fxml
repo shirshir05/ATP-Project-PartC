@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import View.MazeDisplayer?>
-<BorderPane stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane onKeyPressed="#KeyPressed" stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -41,25 +41,19 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Help the princess save her prince!" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="27.0" />
-               </font>
-            </Label>
-            <MazeDisplayer fx:id="mazeDisplayer" height="600.0"
-                           imageFileNameCharacter="resources/Images/princess_done.png"
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER"/>
+             <MazeDisplayer fx:id="mazeDisplayer" height="450.0"
+                           imageFileNameCharacter="resources/Images/princess.png"
                            imageFileNameWall="resources/Images/trees.png"
-                           onMouseClicked="#mazeMouseClicked" width="600.0" />
-<!--            <Canvas height="267.0" width="412.0" >
-
-            </Canvas>-->
+                           onMouseClicked="#mazeMouseClicked" width="600.0"/>
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="Show path to prince" />
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
+                    onAction="#generateMaze"/>
          </children>
       </HBox>
    </bottom>
