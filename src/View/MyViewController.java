@@ -1,37 +1,39 @@
 package View;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import javafx.scene.input.MouseEvent;
+
+
 
 public class MyViewController implements IView{
 
 
-
+    private MediaPlayer mediaplayer;
+    private boolean flagToMusic = false;
 
     public void music()
     {
-        AudioPlayer MGP = AudioPlayer.player;
-        AudioStream BGM;
-        ContinuousAudioDataStream loop = null;
-        try {
-            BGM= new AudioStream(new FileInputStream("resources/song"));
+        Media musicFile = new Media(getClass().getResource("/Audio/song.mp3").toString());
+        mediaplayer = new MediaPlayer(musicFile);
+        mediaplayer.setVolume(0.1);
+        mediaplayer.play();
+        flagToMusic = true;
+    }
 
-            AudioData MD = BGM.getData();
-            loop =  new ContinuousAudioDataStream(MD);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void StopMusic() {
+        if(flagToMusic){
+            mediaplayer.stop();
+            flagToMusic =  false;
+
         }
-
-        MGP.start(loop);
-
 
     }
 
 
 
 
+    public void mazeMouseClicked(MouseEvent mouseEvent) {
+    }
 }

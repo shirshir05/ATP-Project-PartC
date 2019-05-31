@@ -8,12 +8,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../View/MyView.fxml"));
-        primaryStage.setTitle("bye");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("../View/StartWindows .fxml"));
+        primaryStage.setTitle("Start Windows");
+        primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
+
     }
 
 
