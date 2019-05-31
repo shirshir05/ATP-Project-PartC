@@ -1,82 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
+<?import View.MazeDisplayer?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import View.MazeDisplayer?>
+<BorderPane onKeyPressed="#KeyPressed" stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="File" fx:id="File" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="File" textAlignment="CENTER">
-               <contextMenu>
-                  <ContextMenu>
+            <MenuBar prefHeight="49.0">
+              <menus>
+                  <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <Menu mnemonicParsing="false" text="Unspecified Menu">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Action 1" />
-                          </items>
-                        </Menu>
-                      <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
+                      <MenuItem mnemonicParsing="false" onAction="#music" text="New maze" />
+                        <MenuItem mnemonicParsing="false" text="Save maze" />
+                        <MenuItem mnemonicParsing="false" text="Load maze" />
                     </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Button>
-            <Button id="Options" fx:id="Options" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Options" textAlignment="CENTER" />
-            <Button fx:id="Exit" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Exit" textAlignment="CENTER">
-               <contextMenu>
-                  <ContextMenu>
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                     </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Button>
-            <Button fx:id="Help" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Help" textAlignment="CENTER">
-               <contextMenu>
-                  <ContextMenu>
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                     </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Button>
-            <Button fx:id="About" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="About" textAlignment="CENTER">
-               <contextMenu>
-                  <ContextMenu>
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                     </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Button>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Options">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Properties" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Exit" />
+                <Menu mnemonicParsing="false" text="Help" />
+                  <Menu mnemonicParsing="false" onAction="#music" text="About" />
+              </menus>
+            </MenuBar>
          </children>
       </HBox>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="Help the princess save her prince!" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="27.0" />
-               </font>
-            </Label>
-            <Canvas height="267.0" width="412.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER"/>
+             <MazeDisplayer fx:id="mazeDisplayer" height="450.0"
+                           imageFileNameCharacter="resources/Images/princess.png"
+                           imageFileNameWall="resources/Images/trees.png"
+                           onMouseClicked="#mazeMouseClicked" width="600.0"/>
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="Show path to prince" />
+             <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
+                     onAction="#generateMaze"/>
+            <Button mnemonicParsing="false" onAction="#StopMusic" text="Stop music" />
          </children>
       </HBox>
    </bottom>
