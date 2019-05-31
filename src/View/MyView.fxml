@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane stylesheets="@ViewStyle.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import View.MazeDisplayer?>
+<BorderPane stylesheets="@ViewStyle.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -69,7 +70,13 @@
                   <Font name="System Bold Italic" size="27.0" />
                </font>
             </Label>
-            <Canvas height="267.0" width="412.0" />
+            <MazeDisplayer fx:id="mazeDisplayer" height="600.0"
+                           imageFileNameCharacter="resources/Images/princess_done.png"
+                           imageFileNameWall="resources/Images/trees.png"
+                           onMouseClicked="#mazeMouseClicked" width="600.0" />
+         <!--   <Canvas height="267.0" width="412.0" >
+
+            </Canvas>-->
          </children>
       </VBox>
    </center>
