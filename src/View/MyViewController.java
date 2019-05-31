@@ -1,14 +1,21 @@
 package View;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-import sun.audio.*;
 
 
 public class MyViewController implements IView {
+
+
+    private MediaPlayer mediaplayer;
+    private boolean flagToMusic = false;
+
 
     @FXML
     public MazeDisplayer mazeDisplayer;
@@ -68,12 +75,23 @@ public class MyViewController implements IView {
         mazeDisplayer.requestFocus();
     }
 
-    public void music() {
-        AudioPlayer MGP = AudioPlayer.player;
-        AudioStream BGM;
-        AudioData MD;
 
+    public void music()
+    {
+        Media musicFile = new Media(getClass().getResource("/Audio/song.mp3").toString());
+        mediaplayer = new MediaPlayer(musicFile);
+        mediaplayer.setVolume(0.1);
+        mediaplayer.play();
+        flagToMusic = true;
     }
 
+    public void StopMusic() {
+        if(flagToMusic){
+            mediaplayer.stop();
+            flagToMusic =  false;
+
+        }
+
+    }
 
 }

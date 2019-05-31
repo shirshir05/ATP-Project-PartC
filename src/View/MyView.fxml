@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
+<?import View.MazeDisplayer?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -18,9 +18,9 @@
          <children>
             <MenuBar prefHeight="49.0">
               <menus>
-                  <Menu mnemonicParsing="false" onAction="#music" text="File">
+                  <Menu mnemonicParsing="false" text="File">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="New maze" />
+                      <MenuItem mnemonicParsing="false" onAction="#music" text="New maze" />
                         <MenuItem mnemonicParsing="false" text="Save maze" />
                         <MenuItem mnemonicParsing="false" text="Load maze" />
                     </items>
@@ -32,7 +32,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Exit" />
                 <Menu mnemonicParsing="false" text="Help" />
-                  <Menu mnemonicParsing="false" text="About" />
+                  <Menu mnemonicParsing="false" onAction="#music" text="About" />
               </menus>
             </MenuBar>
          </children>
@@ -52,8 +52,9 @@
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
-                    onAction="#generateMaze"/>
+             <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
+                     onAction="#generateMaze"/>
+            <Button mnemonicParsing="false" onAction="#StopMusic" text="Stop music" />
          </children>
       </HBox>
    </bottom>
