@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MyViewModel extends Observable implements Observer {
+public class Mediation extends Observable implements Observer {
 
     private IModel model;
     private int characterPositionRowIndex;
@@ -18,7 +18,7 @@ public class MyViewModel extends Observable implements Observer {
     public StringProperty characterPositionRow = new SimpleStringProperty("1"); //For Binding
     public StringProperty characterPositionColumn = new SimpleStringProperty("1"); //For Binding
 
-    public MyViewModel(IModel model) {
+    public Mediation(IModel model) {
         this.model = model;
     }
 
@@ -30,6 +30,13 @@ public class MyViewModel extends Observable implements Observer {
         return model.solveMaze();
     }
 
+    public int getCharacterPositionRow() {
+        return characterPositionRowIndex;
+    }
+
+    public int getCharacterPositionColumn() {
+        return characterPositionColumnIndex;
+    }
     @Override
     public void update(Observable o, Object arg) {
         if (o==model){
@@ -40,11 +47,14 @@ public class MyViewModel extends Observable implements Observer {
             setChanged();
             notifyObservers();
         }
-
     }
 
     public int[][] getMaze() {
         return model.getMaze();
     }
 
+    public void MoveTheMaze(){
+        setChanged();
+        notifyObservers();
+    }
 }

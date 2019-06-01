@@ -1,19 +1,18 @@
 package View;
 
-import ViewModel.MyViewModel;
 import javafx.scene.Node;
-import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.util.Observable;
-import java.util.Observer;
 
 public class generateMazeController extends AController {
 
     public javafx.scene.control.TextField rowsNum;
     public javafx.scene.control.TextField ColumnsNum;
+    public javafx.scene.control.Button btn_generateMaze;
 
 
+
+    //After the user sets the line number and column of the maze and presses the button create Maze - click me!
     public void createMaze(javafx.event.ActionEvent actionEvent) {
         int heigth = Integer.valueOf(rowsNum.getText());
         int width = Integer.valueOf(ColumnsNum.getText());
@@ -22,8 +21,10 @@ public class generateMazeController extends AController {
     }
 
 
+
+    //Updating his listeners that he kept up to date
     @Override
     public void update(Observable o, Object arg) {
-
-    }
+        setChanged();
+        notifyObservers();    }
 }
