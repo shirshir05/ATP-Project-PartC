@@ -8,7 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Desktop/Project_PartA/out/artifacts/Project_PartA_jar/Project_PartA.jar!/" />

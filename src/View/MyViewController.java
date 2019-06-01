@@ -13,8 +13,16 @@ import javafx.scene.input.MouseEvent;
 public class MyViewController implements IView {
 
 
-    private MediaPlayer mediaplayer;
-    private boolean flagToMusic = false;
+
+    public MyViewController(){
+        musicBackground();
+
+    }
+
+
+    private MediaPlayer mediaplayerBackground;
+    private boolean flagToMusicBackground = false;
+
 
 
     @FXML
@@ -76,22 +84,27 @@ public class MyViewController implements IView {
     }
 
 
-    public void music()
+    public void musicBackground()
     {
-        Media musicFile = new Media(getClass().getResource("/Audio/song.mp3").toString());
-        mediaplayer = new MediaPlayer(musicFile);
-        mediaplayer.setVolume(0.1);
-        mediaplayer.play();
-        flagToMusic = true;
+        Media musicFile = new Media(getClass().getResource("/Audio/GameMusic.m4a").toString());
+        mediaplayerBackground = new MediaPlayer(musicFile);
+        mediaplayerBackground.setVolume(0.1);
+        mediaplayerBackground.play();
+        flagToMusicBackground = true;
     }
 
-    public void StopMusic() {
-        if(flagToMusic){
-            mediaplayer.stop();
-            flagToMusic =  false;
+    public void StopMusicBackground() {
+        if(flagToMusicBackground){
+            mediaplayerBackground.stop();
+            flagToMusicBackground =  false;
 
         }
+        if(flagToMusicBackground == false){
+            musicBackground();
 
+        }
     }
+
+
 
 }

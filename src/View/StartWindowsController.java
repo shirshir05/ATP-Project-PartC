@@ -4,10 +4,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
 public class StartWindowsController {
+
 
 
     public void startGame(javafx.event.ActionEvent actionEvent) throws Exception{
@@ -18,5 +21,9 @@ public class StartWindowsController {
         stage.setScene(new Scene(root2, 700, 600));
         stage.show();
         ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+        MyViewController m =  new MyViewController();
+
+
+
     }
 }
