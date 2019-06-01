@@ -1,3 +1,4 @@
+
 package ViewModel;
 
 import Model.IModel;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Mediation extends Observable implements Observer  {
+public class Mediation extends Observable implements Observer {
 
     private IModel model;
     private int characterPositionRowIndex;
@@ -59,4 +60,15 @@ public class Mediation extends Observable implements Observer  {
         model.KeyPressed(keyEvent);
     }
 
+    public ArrayList<String> getSavedMazes() {
+        return model.getListOfSavedFiles();
+    }
+
+    public void createMazeFromFile(String fileName) {
+        model.createFileFromDB(fileName);
+    }
+
+    public void saveMaze() {
+        model.saveMaze();
+    }
 }
