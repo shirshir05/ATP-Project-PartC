@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import View.MazeDisplayer?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,10 +8,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<?import View.MazeDisplayer?>
-<BorderPane onKeyPressed="#KeyPressed" stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane onKeyPressed="#KeyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,9 +17,13 @@
               <menus>
                   <Menu mnemonicParsing="false" text="File">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#music" text="New maze" />
-                        <MenuItem mnemonicParsing="false" text="Save maze" />
-                        <MenuItem mnemonicParsing="false" text="Load maze" />
+                      <MenuItem mnemonicParsing="false" onAction="#NewMazeMouseClicked" text="New maze" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveMaze" text="Save maze" />
+                        <Menu fx:id="loadMazeMenu" mnemonicParsing="false" onShowing="#showSavedMazes" text="Load maze">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="test" />
+                          </items>
+                        </Menu>
                     </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Options">
@@ -32,7 +33,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Exit" />
                 <Menu mnemonicParsing="false" text="Help" />
-                  <Menu mnemonicParsing="false" onAction="#music" text="About" />
+                  <Menu mnemonicParsing="false" onAction="#musicBackground" text="About" />
               </menus>
             </MenuBar>
          </children>
@@ -41,20 +42,16 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER"/>
-             <MazeDisplayer fx:id="mazeDisplayer" height="450.0"
-                           imageFileNameCharacter="resources/Images/princess.png"
-                           imageFileNameWall="resources/Images/trees.png"
-                           onMouseClicked="#mazeMouseClicked" width="600.0"/>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER" />
+             <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/princess.png" imageFileNameSolution="resources/Images/leaf.png" imageFileNameWall="resources/Images/trees.png" onMouseClicked="#mazeMouseClicked" width="600.0" />
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-             <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
-                     onAction="#generateMaze"/>
-            <Button mnemonicParsing="false" onAction="#StopMusic" text="Stop music" />
+             <Button mnemonicParsing="false" onAction="#solve" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE" />
+            <Button mnemonicParsing="false" onAction="#StopMusicBackground" text="Stop music" />
          </children>
       </HBox>
    </bottom>
