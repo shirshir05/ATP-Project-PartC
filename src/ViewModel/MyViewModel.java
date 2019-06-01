@@ -42,4 +42,9 @@ public class MyViewModel extends Observable implements Observer {
         }
 
     }
+
+    public int[][] getMaze() {
+        return model.getMaze();
+    }
+
 }

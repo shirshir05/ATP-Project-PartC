@@ -20,8 +20,6 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static sun.net.www.protocol.http.AuthCacheValue.Type.Server;
-
 public class MyModel extends Observable implements IModel {
 
     private ExecutorService threadPool = Executors.newCachedThreadPool();

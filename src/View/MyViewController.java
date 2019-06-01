@@ -1,5 +1,7 @@
 package View;
 import algorithms.mazeGenerators.MyMazeGenerator;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -108,9 +110,6 @@ public class MyViewController extends AController {
         }
     }
 
-    public int[][] getMaze() {
-        return model.getMaze();
-    }
 
     @Override
     public void update(Observable o, Object arg) {
@@ -119,6 +118,11 @@ public class MyViewController extends AController {
             btn_generateMaze.setDisable(false);
         }
     }
+
+    public String getCharacterPositionRow() {
+        return characterPositionRow.get();
+    }
+
 
     @Override
     public void displayMaze(int[][] maze) {
