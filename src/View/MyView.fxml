@@ -53,7 +53,7 @@
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
-                     onAction="#generateMaze"/>
+                     onAction="#solve"/>
             <Button mnemonicParsing="false" onAction="#StopMusicBackground" text="Stop music" />
          </children>
       </HBox>
