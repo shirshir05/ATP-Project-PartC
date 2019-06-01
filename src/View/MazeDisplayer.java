@@ -52,6 +52,7 @@ public class MazeDisplayer extends Canvas {
         return characterPositionColumn;
     }
 
+    // new maze
     public void setMaze(int[][] maze) {
         this.maze = maze;
         solutionDisplayed = false;

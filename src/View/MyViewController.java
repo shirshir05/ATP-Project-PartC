@@ -1,5 +1,7 @@
 package View;
 import algorithms.mazeGenerators.MyMazeGenerator;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -22,23 +24,84 @@ import java.util.Observer;
 
 public class MyViewController extends AController {
 
+    // ----------music Background-----//
     private MediaPlayer mediaplayerBackground;
     private boolean flagToMusicBackground = false;
+
+    //show the maze
     @FXML
     public MazeDisplayer mazeDisplayer;
 
 
+    //A constructor that plays the music calls it when the window opens
     public MyViewController(){
+
         musicBackground();
     }
 
-    public void generateMaze() {
-        //int rows = Integer.valueOf(txtfld_rowsNum.getText());
-        //int columns = Integer.valueOf(txtfld_columnsNum.getText());
-        //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
-        //this.mazeDisplayer.setMaze(mazeData);
+    public void NewMazeMouseClicked() throws IOException {
+
+        //open a new windows -  the generate Maze
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
+        Parent root2 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2, 500, 600));
+
+        //definition generateMazeController and MyViewModel Observer
+        generateMazeController generateMazeController = new generateMazeController();
+        generateMazeController.addObserver(MyViewModel);
+        AController view3  = FXMLLoader.getController();
+        view3.setMyViewModel(MyViewModel);
+        MyViewModel.addObserver(view3);
+
+        //definition generateMazeController and MyViewController Observer
+        generateMazeController.addObserver(this);
+        AController view4  = FXMLLoader.getController();
+        this.addObserver(view4);
+        //show
+        stage.show();
     }
 
+
+    //When something changes he displays the maze again
+    public void update(Observable o, Object arg) {
+        if (o == MyViewModel) {
+            displayMaze(MyViewModel.getMaze());
+            //btn_generateMaze.setDisable(false);
+        }
+
+    }
+
+    public void displayMaze(int[][] maze) {
+        //Update location of characters
+        int characterPositionRow = MyViewModel.getCharacterPositionRow();
+        int characterPositionColumn = MyViewModel.getCharacterPositionColumn();
+        mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
+        //A function that draws the maze
+        mazeDisplayer.setMaze(maze);
+
+        //this.characterPositionRow.set(characterPositionRow + "");
+        //this.characterPositionColumn.set(characterPositionColumn + "");
+    }
+
+
+    //-----------------------------------solve--------------------------//
+
+    //When the button clicks the solve maze button
+    public void solve()
+    {
+        mazeDisplayer.displayNewSolution(MyViewModel.solveMaze());
+    }
+
+
+    //Prevent the focus taking problem of the TextFields
+    public void mazeMouseClicked(MouseEvent mouseEvent) {
+
+        mazeDisplayer.requestFocus();
+    }
+
+
+    //-----------------------------------click KeyPressed--------------------------//
     public void KeyPressed(KeyEvent keyEvent) {
         int characterRowCurrentPosition = mazeDisplayer.getCharacterPositionRow();
         int characterColumnCurrentPosition = mazeDisplayer.getCharacterPositionColumn();
@@ -64,28 +127,11 @@ public class MyViewController extends AController {
 
         //Updates the MazeDisplayer
         mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
-
         keyEvent.consume();
     }
 
-    public void solve()
-    {
-        mazeDisplayer.displayNewSolution(MyViewModel.solveMaze());
-    }
 
-    //Prevent the focus taking problem of the TextFields
-    public void mazeMouseClicked(MouseEvent mouseEvent) {
-        mazeDisplayer.requestFocus();
-    }
-
-    public void NewMazeMouseClicked(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
-        Parent root3 = (Parent)FXMLLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root3, 500, 600));
-        stage.show();
-    }
-
+    // -----------------------------music------------------------------//
     public void musicBackground()
     {
         Media musicFile = new Media(getClass().getResource("/Audio/GameMusic.m4a").toString());
@@ -107,9 +153,4 @@ public class MyViewController extends AController {
         }
     }
 
-
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
 }
