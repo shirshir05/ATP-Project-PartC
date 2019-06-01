@@ -15,13 +15,14 @@ import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static sun.net.www.protocol.http.AuthCacheValue.Type.Server;
 
-public class MyModel implements IModel {
+public class MyModel extends Observable implements IModel {
 
     private ExecutorService threadPool = Executors.newCachedThreadPool();
     Server mazeGeneratingServer;

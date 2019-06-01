@@ -16,6 +16,11 @@ public class MazeDisplayer extends Canvas {
     //region Properties
     private StringProperty ImageFileNameWall = new SimpleStringProperty();
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
+    private StringProperty ImageFileNameSolution = new SimpleStringProperty();
+
+    public void setImageFileNameSolution(String imageFileNameSolution) { this.ImageFileNameSolution.set(imageFileNameSolution); }
+
+    public String getImageFileNameSolution() { return ImageFileNameSolution.get(); }
 
     public String getImageFileNameWall() {
         return ImageFileNameWall.get();
@@ -29,14 +34,12 @@ public class MazeDisplayer extends Canvas {
         return ImageFileNameCharacter.get();
     }
 
-    public void setImageFileNameCharacter(String imageFileNameCharacter) {
-        this.ImageFileNameCharacter.set(imageFileNameCharacter);
-    }
+    public void setImageFileNameCharacter(String imageFileNameCharacter) { this.ImageFileNameCharacter.set(imageFileNameCharacter);}
     //endregion
 
     private int[][] maze;
-    private int characterPositionRow = 1;
-    private int characterPositionColumn = 1;
+    private int characterPositionRow;
+    private int characterPositionColumn;
 
     public int getCharacterPositionRow() {
         return characterPositionRow;
@@ -93,7 +96,12 @@ public class MazeDisplayer extends Canvas {
     }
 
     public void displaySolution(ArrayList<int[]> solution) {
+        //Draw Maze
+        GraphicsContext graphicsContext2D = getGraphicsContext2D();
+        for (int i = 0; i < solution.size(); i++) {
+          //  graphicsContext2D.drawImage(wallImage, i * cellHeight, j * cellWidth, cellHeight, cellWidth);
 
+        }
     }
 }
 

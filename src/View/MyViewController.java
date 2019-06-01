@@ -1,6 +1,9 @@
 package View;
-import Model.MyModel;
 import algorithms.mazeGenerators.MyMazeGenerator;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -9,29 +12,31 @@ import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
 
-public class MyViewController implements IView {
+public class MyViewController extends AController {
 
     private MediaPlayer mediaplayerBackground;
     private boolean flagToMusicBackground = false;
     @FXML
     public MazeDisplayer mazeDisplayer;
-    private MyModel model;
+
 
     public MyViewController(){
         musicBackground();
-        model = new MyModel();
     }
 
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
-        model.generateMaze(10,10);//should receive width and height from user
-        this.mazeDisplayer.setMaze(model.getMaze());
+        //this.mazeDisplayer.setMaze(mazeData);
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
@@ -65,7 +70,7 @@ public class MyViewController implements IView {
 
     public void solve()
     {
-        mazeDisplayer.displaySolution(model.solveMaze());
+        mazeDisplayer.displaySolution(MyViewModel.solveMaze());
     }
 
     //Prevent the focus taking problem of the TextFields
@@ -73,6 +78,13 @@ public class MyViewController implements IView {
         mazeDisplayer.requestFocus();
     }
 
+    public void NewMazeMouseClicked(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
+        Parent root3 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root3, 500, 600));
+        stage.show();
+    }
 
     public void musicBackground()
     {
@@ -96,5 +108,8 @@ public class MyViewController implements IView {
     }
 
 
+    @Override
+    public void update(Observable o, Object arg) {
 
+    }
 }

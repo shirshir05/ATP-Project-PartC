@@ -8,8 +8,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.util.Observable;
+import java.util.Observer;
 
-public class StartWindowsController {
+
+public class StartWindowsController extends AController {
 
 
 
@@ -24,6 +27,11 @@ public class StartWindowsController {
         MyViewController m =  new MyViewController();
 
 
+
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
 
     }
 }
