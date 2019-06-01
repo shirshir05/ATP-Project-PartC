@@ -2,14 +2,16 @@ package ViewModel;
 
 import Model.IModel;
 import Model.MyModel;
+import algorithms.mazeGenerators.Maze;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Mediation extends Observable implements Observer {
+public class Mediation extends Observable implements Observer  {
 
     private IModel model;
     private int characterPositionRowIndex;
@@ -41,20 +43,20 @@ public class Mediation extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         if (o==model){
             characterPositionRowIndex = model.getCharacterPositionRow();
-            characterPositionRow.set(characterPositionRowIndex + "");
+            //characterPositionRow.set(characterPositionRowIndex + "");
             characterPositionColumnIndex = model.getCharacterPositionColumn();
-            characterPositionColumn.set(characterPositionColumnIndex + "");
+           // characterPositionColumn.set(characterPositionColumnIndex + "");
             setChanged();
             notifyObservers();
         }
     }
 
-    public int[][] getMaze() {
+    public Maze getMaze() {
         return model.getMaze();
     }
 
-    public void MoveTheMaze(){
-        setChanged();
-        notifyObservers();
+    public void KeyPressed(KeyEvent keyEvent) {
+        model.KeyPressed(keyEvent);
     }
+
 }
