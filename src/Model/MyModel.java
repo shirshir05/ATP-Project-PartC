@@ -1,23 +1,21 @@
 package Model;
 
 import Client.*;
+import IO.MyCompressorOutputStream;
 import IO.MyDecompressorInputStream;
 import algorithms.mazeGenerators.Maze;
 import Server.*;
 
 import algorithms.mazeGenerators.MyMazeGenerator;
-import algorithms.search.AState;
-import algorithms.search.MazeState;
-import algorithms.search.Solution;
+import algorithms.search.*;
 import javafx.scene.input.KeyCode;
 
 import java.io.*;
 import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Random;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -31,7 +29,7 @@ public class MyModel extends Observable implements IModel {
     Maze maze;
     private int characterPositionRow;
     private int characterPositionColumn;
-
+    private HashMap<Integer,Integer> sizes = new HashMap<>();//key = count, value = sizeOfByteArray
 
     public MyModel() {
         //Raise the servers
@@ -178,4 +176,47 @@ public class MyModel extends Observable implements IModel {
         }
         return solution;
     }
+
+    public void saveMaze() {
+        try {
+            String tempFolder = System.getProperty("java.io.tmpdir");
+            String file = tempFolder + LocalDateTime.now() +".txt";
+            OutputStream out = new MyCompressorOutputStream(new FileOutputStream(file));
+            byte[] toWrite = maze.toByteArray();
+            sizes.put(LocalDateTime.now().hashCode(),toWrite.length);
+            out.write(toWrite);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<String> getListOfSavedMazes()
+    {
+        String tempFolder = System.getProperty("java.io.tmpdir");
+        ArrayList<String> mazes = new ArrayList<>();
+/*
+
+        String fileLocation = tempFolder + "/m" + i + ".txt";
+            InputStream in = new MyDecompressorInputStream(new FileInputStream(fileLocation));
+            byte currByteArray[] = new byte[sizes.get(i)];
+            in.read(currByteArray);
+            in.close();
+            Maze maze = new Maze(currByteArray);
+            stop = Arrays.equals(maze.toByteArray(), byteMazeFromClient);
+
+*/
+
+        return mazes;
+    }
+
+    public Maze getMazeFromFile(String nameOfFile)
+    {
+        Maze mazeToReturn = null;
+        return mazeToReturn;
+    }
+
 }

@@ -1,11 +1,8 @@
 package View;
 
-import ViewModel.MyViewModel;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.util.Observable;
-import java.util.Observer;
 
 public class generateMazeController extends AController {
 

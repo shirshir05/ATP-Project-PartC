@@ -1,15 +1,15 @@
 package View;
 
-import ViewModel.MyViewModel;
+import ViewModel.Mediation;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public abstract class AController implements IView, Observer {
 
-    protected static MyViewModel MyViewModel ;
+    protected static Mediation MyViewModel ;
 
-    public static void setMyViewModel(MyViewModel viewModel)
+    public static void setMyViewModel(Mediation viewModel)
     {
         MyViewModel = viewModel;
     }

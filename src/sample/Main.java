@@ -2,8 +2,7 @@ package sample;
 
 import Model.MyModel;
 import View.AController;
-import View.IView;
-import ViewModel.MyViewModel;
+import ViewModel.Mediation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         MyModel model = new MyModel();
         model.startServers();
-        MyViewModel viewModel = new MyViewModel(model);
+        Mediation viewModel = new Mediation(model);
         model.addObserver(viewModel);
 
         /////

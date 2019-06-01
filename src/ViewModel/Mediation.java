@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MyViewModel extends Observable implements Observer {
+public class Mediation extends Observable implements Observer {
 
     private IModel model;
 
-    public MyViewModel(IModel model) {
+    public Mediation(IModel model) {
         this.model = model;
     }
 
