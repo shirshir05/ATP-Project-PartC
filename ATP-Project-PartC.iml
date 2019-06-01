@@ -11,7 +11,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/Project_PartA/out/artifacts/Project_PartA_jar/Project_PartA.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Project_PartA/out/artifacts/Project_PartA_jar/Project_PartA.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
