@@ -45,6 +45,7 @@
              <MazeDisplayer fx:id="mazeDisplayer" height="450.0"
                            imageFileNameCharacter="resources/Images/princess.png"
                            imageFileNameWall="resources/Images/trees.png"
+                            imageFileNameSolution="resources/Images/leaf.png"
                            onMouseClicked="#mazeMouseClicked" width="600.0"/>
          </children>
       </VBox>

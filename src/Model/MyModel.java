@@ -5,6 +5,7 @@ import IO.MyDecompressorInputStream;
 import algorithms.mazeGenerators.Maze;
 import Server.*;
 
+import algorithms.mazeGenerators.MyMazeGenerator;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
@@ -146,6 +147,7 @@ public class MyModel extends Observable implements IModel {
     @Override
     public ArrayList<int[]> solveMaze() {
         ArrayList<int[]>solution = new ArrayList<>();
+        maze = (new MyMazeGenerator()).generate(10,10);////temp
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
                         @Override

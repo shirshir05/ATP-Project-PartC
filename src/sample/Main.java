@@ -22,15 +22,16 @@ public class Main extends Application {
 
         /////
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../View/StartWindows.fxml"));
+        Parent root = loader.load(getClass().getResource("../View/StartWindows.fxml").openStream());
         primaryStage.setTitle("MAZES & DRAGONS");
-        primaryStage.setScene(new Scene(root, 700, 600));
+        Scene scene = new Scene(root,700,600);
+        scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
+        primaryStage.setScene(scene);
 
         //
         AController view  = loader.getController();
         view.setMyViewModel(viewModel);
         viewModel.addObserver(view);
-
 
         primaryStage.show();
 

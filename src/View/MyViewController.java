@@ -70,7 +70,7 @@ public class MyViewController extends AController {
 
     public void solve()
     {
-        mazeDisplayer.displaySolution(MyViewModel.solveMaze());
+        mazeDisplayer.displayNewSolution(MyViewModel.solveMaze());
     }
 
     //Prevent the focus taking problem of the TextFields
