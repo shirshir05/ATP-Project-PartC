@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class MazeDisplayer extends Canvas {
 
@@ -91,5 +92,8 @@ public class MazeDisplayer extends Canvas {
         }
     }
 
+    public void displaySolution(ArrayList<int[]> solution) {
+
+    }
 }
 

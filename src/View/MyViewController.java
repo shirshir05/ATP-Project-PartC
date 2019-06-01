@@ -1,4 +1,6 @@
 package View;
+import Model.MyModel;
+import algorithms.mazeGenerators.MyMazeGenerator;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -8,45 +10,28 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
 
 
 public class MyViewController implements IView {
 
-
+    private MediaPlayer mediaplayerBackground;
+    private boolean flagToMusicBackground = false;
+    @FXML
+    public MazeDisplayer mazeDisplayer;
+    private MyModel model;
 
     public MyViewController(){
         musicBackground();
-
+        model = new MyModel();
     }
-
-
-    private MediaPlayer mediaplayerBackground;
-    private boolean flagToMusicBackground = false;
-
-
-
-    @FXML
-    public MazeDisplayer mazeDisplayer;
-
-    int[][] mazeData = { // a stub...
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
-            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
-            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
-            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
-            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
-    };
-
 
     public void generateMaze() {
         //int rows = Integer.valueOf(txtfld_rowsNum.getText());
         //int columns = Integer.valueOf(txtfld_columnsNum.getText());
         //this.mazeDisplayer.setMaze(getRandomMaze(rows,columns));
-        this.mazeDisplayer.setMaze(mazeData);
+        model.generateMaze(10,10);//should receive width and height from user
+        this.mazeDisplayer.setMaze(model.getMaze());
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
@@ -76,6 +61,11 @@ public class MyViewController implements IView {
         mazeDisplayer.setCharacterPosition(characterRowNewPosition, characterColumnNewPosition);
 
         keyEvent.consume();
+    }
+
+    public void solve()
+    {
+        mazeDisplayer.displaySolution(model.solveMaze());
     }
 
     //Prevent the focus taking problem of the TextFields

@@ -5,11 +5,16 @@ import IO.MyDecompressorInputStream;
 import algorithms.mazeGenerators.Maze;
 import Server.*;
 
+import algorithms.search.AState;
+import algorithms.search.MazeState;
+import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,7 +26,7 @@ public class MyModel implements IModel {
     private ExecutorService threadPool = Executors.newCachedThreadPool();
     Server mazeGeneratingServer;
     Server solveSearchProblemServer;
-    private int[][] maze;
+    Maze maze;
     private int characterPositionRow;
     private int characterPositionColumn;
 
@@ -78,10 +83,9 @@ public class MyModel implements IModel {
                         byte[] decompressedMaze = new byte[width*height+30];
                         //allocating byte[] for the decompressed maze -
                         is.read(decompressedMaze); //Fill decompressedMaze with bytes
-                        Maze mazeTemp = new Maze(decompressedMaze);
-                        //maze = mazeTemp.getM_maze();
-                        characterPositionColumn = mazeTemp.getStartPosition().getColumnIndex();
-                        characterPositionRow = mazeTemp.getStartPosition().getRowIndex();
+                        maze = new Maze(decompressedMaze);
+                        characterPositionColumn = maze.getStartPosition().getColumnIndex();
+                        characterPositionRow = maze.getStartPosition().getRowIndex();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -99,12 +103,13 @@ public class MyModel implements IModel {
                 maze[i][j] = Math.abs(rand.nextInt() % 2);
             }
         }*/
-        return maze;
+        return maze.getM_maze();
     }
 
     @Override
     public int[][] getMaze() {
-        return maze;
+        if (maze == null) generateMaze(10,10);
+        return maze.getM_maze();
     }
 
     @Override
@@ -137,5 +142,37 @@ public class MyModel implements IModel {
         return characterPositionColumn;
     }
 
-
+    @Override
+    public ArrayList<int[]> solveMaze() {
+        ArrayList<int[]>solution = new ArrayList<>();
+        try {
+            Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
+                        @Override
+                        public void clientStrategy(InputStream inFromServer, OutputStream outToServer) {
+                            try {
+                                ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                                ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                                toServer.flush();
+                                toServer.writeObject(maze); //send maze to server
+                                toServer.flush();
+                                Solution mazeSolution = (Solution) fromServer.readObject(); //read generated maze (compressed with MyCompressor) from server
+                                ArrayList<AState> mazeSolutionSteps = mazeSolution.getSolutionPath();
+                                for (int i = 0; i < mazeSolutionSteps.size(); i++)
+                                {//adds the solution steps to the array, in the same order they are received
+                                    int[]position = new int [2] ;
+                                    position[0] = ((MazeState)mazeSolutionSteps.get(i)).getRow();
+                                    position[1] = ((MazeState)mazeSolutionSteps.get(i)).getCol();
+                                    solution.add(i,position);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+            client.communicateWithServer();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return solution;
+    }
 }
