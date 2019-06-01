@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
+   <children>
+      <VBox layoutX="240.0" layoutY="65.0" prefHeight="122.0" prefWidth="157.0">
+         <children>
+            <TextField fx:id="rowsNum" />
+            <TextField fx:id="ColumnsNum" />
+            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="161.0" text="Click me!" />
+         </children>
+      </VBox>
+      <Label layoutX="86.0" layoutY="65.0" prefHeight="26.0" prefWidth="113.0" text="rows" />
+      <Label layoutX="85.0" layoutY="99.0" prefHeight="26.0" prefWidth="113.0" text="columns" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="163.0" prefHeight="54.0" prefWidth="670.0" text="If the dimensions exceed the permissible dimensions, a 10 × 10 maze will be created." textAlignment="RIGHT" />
+      <Label alignment="CENTER" layoutY="200.0" prefHeight="18.0" prefWidth="670.0" text="For more information click" />
+   </children>
+</AnchorPane>

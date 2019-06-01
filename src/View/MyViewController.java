@@ -1,4 +1,8 @@
 package View;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -7,10 +11,12 @@ import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
-
-public class MyViewController implements IView {
+public class MyViewController extends AController implements IView {
 
 
 
@@ -81,6 +87,16 @@ public class MyViewController implements IView {
     //Prevent the focus taking problem of the TextFields
     public void mazeMouseClicked(MouseEvent mouseEvent) {
         mazeDisplayer.requestFocus();
+    }
+
+
+
+    public void NewMazeMouseClicked(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
+        Parent root3 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root3, 500, 600));
+        stage.show();
     }
 
 

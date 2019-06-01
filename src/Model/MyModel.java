@@ -14,7 +14,6 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static sun.net.www.protocol.http.AuthCacheValue.Type.Server;
 
 public class MyModel implements IModel {
 
@@ -79,7 +78,7 @@ public class MyModel implements IModel {
                         //allocating byte[] for the decompressed maze -
                         is.read(decompressedMaze); //Fill decompressedMaze with bytes
                         Maze mazeTemp = new Maze(decompressedMaze);
-                        //maze = mazeTemp.getM_maze();
+                        maze = mazeTemp.getM_maze();
                         characterPositionColumn = mazeTemp.getStartPosition().getColumnIndex();
                         characterPositionRow = mazeTemp.getStartPosition().getRowIndex();
                     } catch (Exception e) {

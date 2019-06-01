@@ -9,7 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
-public class StartWindowsController {
+public class StartWindowsController extends AController{
 
 
 
