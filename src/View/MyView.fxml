@@ -43,7 +43,7 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER" />
-             <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/princess.png" imageFileNameSolution="resources/Images/leaf.png" imageFileNameWall="resources/Images/trees.png" onMouseClicked="#mazeMouseClicked" width="600.0" />
+             <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNamePrince="resources/Images/dragon_and_knight_.png"  imageFileNameCharacter="resources/Images/princess.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" onMouseClicked="#mazeMouseClicked" width="600.0" />
          </children>
       </VBox>
    </center>

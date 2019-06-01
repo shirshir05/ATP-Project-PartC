@@ -8,12 +8,19 @@ import Server.Server;
 import Server.ServerStrategyGenerateMaze;
 import Server.ServerStrategySolveSearchProblem;
 import algorithms.mazeGenerators.Maze;
+import Server.*;
+
+import algorithms.mazeGenerators.MyMazeGenerator;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
@@ -127,31 +134,7 @@ public class MyModel extends Observable implements IModel {
         return maze.getM_maze();
     }
 
-    @Override
-    public int[][] getMaze() {
-        if (maze == null) generateMaze(10,10);
-        return maze.getM_maze();
-    }
 
-    @Override
-    public void moveCharacter(KeyCode movement) {
-        switch (movement) {
-            case UP:
-                characterPositionRow--;
-                break;
-            case DOWN:
-                characterPositionRow++;
-                break;
-            case RIGHT:
-                characterPositionColumn++;
-                break;
-            case LEFT:
-                characterPositionColumn--;
-                break;
-        }
-        //setChanged();
-        //notifyObservers();
-    }
 
     @Override
     public int getCharacterPositionRow() {
@@ -253,6 +236,131 @@ public class MyModel extends Observable implements IModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public Maze getMaze(){
+        return maze;
+    }
+
+    public void KeyPressed(KeyEvent keyEvent) {
+        int[][] mazeArray = maze.getM_maze();
+        if (keyEvent.getCode() == KeyCode.UP) {
+            if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+
+            else if(mazeArray[characterPositionRow-1][characterPositionColumn] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow - 1;
+                characterPositionColumn = characterPositionColumn;
+            }
+
+        } else if (keyEvent.getCode() == KeyCode.DOWN) {
+            if(characterPositionRow+1 <= maze.getNumberOfRows()-1 && characterPositionColumn >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+
+            else if(mazeArray[characterPositionRow+1][characterPositionColumn] == 1){
+                musicFail();
+
+            }
+            else{
+                characterPositionRow = characterPositionRow + 1;
+                characterPositionColumn = characterPositionColumn;
+            }
+
+        } else if (keyEvent.getCode() == KeyCode.RIGHT) {
+            if(characterPositionRow <= maze.getNumberOfRows()-1 && characterPositionColumn+1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow][characterPositionColumn+1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow;
+                characterPositionColumn = characterPositionColumn + 1;
+            }
+
+        } else if (keyEvent.getCode() == KeyCode.LEFT) {
+            if(characterPositionRow <= maze.getNumberOfRows()-1 && characterPositionColumn-1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow][characterPositionColumn-1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow;
+                characterPositionColumn = characterPositionColumn - 1;
+            }
+        }  else if (keyEvent.getCode() == KeyCode.DIGIT7) {//Upper left
+            if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn-1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow-1][characterPositionColumn-1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow-1;
+                characterPositionColumn = characterPositionColumn - 1;
+            }
+
+        }else if (keyEvent.getCode() == KeyCode.DIGIT9) {//Upper right
+            if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn+1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow-1][characterPositionColumn+1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow-1;
+                characterPositionColumn = characterPositionColumn + 1;
+            }
+        }else if (keyEvent.getCode() == KeyCode.DIGIT1) {//Lower left
+            if(characterPositionRow+1 <= maze.getNumberOfRows()-1 && characterPositionColumn-1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow+1][characterPositionColumn-1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow +1;
+                characterPositionColumn = characterPositionColumn -1;
+            }
+
+        }
+        else if (keyEvent.getCode() == KeyCode.DIGIT3) {//Lower right
+            if(characterPositionRow+1 <= maze.getNumberOfRows()-1 && characterPositionColumn+1 >= maze.getNumberOfColumns()-1)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow+1][characterPositionColumn+1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow +1;
+                characterPositionColumn = characterPositionColumn +1;
+            }
+
+        }
+        else if (keyEvent.getCode() == KeyCode.HOME) {
+            characterPositionRow =maze.getStartPosition().getRowIndex();
+            characterPositionColumn = maze.getStartPosition().getRowIndex();
+        }
+        //Updates the MazeDisplayer
+        keyEvent.consume();
+        setChanged();
+        notifyObservers();
+
+    }
+
+    public void musicFail()
+    {
+        Media musicFile = new Media(getClass().getResource("/Audio/Correct sound effect and wrong sound effect (mp3cut.net).mp3").toString());
+        MediaPlayer mediaplayerBackground = new MediaPlayer(musicFile);
+        mediaplayerBackground.setVolume(0.3);
+        mediaplayerBackground.play();
     }
 
 }
