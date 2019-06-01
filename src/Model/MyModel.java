@@ -53,18 +53,18 @@ public class MyModel extends Observable implements IModel {
     public void generateMaze(int width, int height) {
             //Generate maze
         threadPool.execute(() -> {
-            generateRandomMaze(width,height);
+            generateMazeClient(width,height);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //setChanged();
-            //notifyObservers();
+            setChanged();
+            notifyObservers();
         });
     }
 
-    private int[][] generateRandomMaze(int width, int height) {
+    private int[][] generateMazeClient(int width, int height) {
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5400, new IClientStrategy() {
                 @Override
@@ -97,13 +97,6 @@ public class MyModel extends Observable implements IModel {
             e.printStackTrace();
         }
 
-        /*Random rand = new Random();
-        maze = new int[width][height];
-        for (int i = 0; i < maze.length; i++) {
-            for (int j = 0; j < maze[i].length; j++) {
-                maze[i][j] = Math.abs(rand.nextInt() % 2);
-            }
-        }*/
         return maze.getM_maze();
     }
 

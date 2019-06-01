@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
+<AnchorPane stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
    <children>
       <VBox layoutX="240.0" layoutY="65.0" prefHeight="122.0" prefWidth="157.0">
          <children>
             <TextField fx:id="rowsNum" />
             <TextField fx:id="ColumnsNum" />
-            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="161.0" text="Click me!" />
+            <Button mnemonicParsing="false" onAction="#createMaze" prefHeight="34.0" prefWidth="161.0" text="Click me!" />
          </children>
       </VBox>
       <Label layoutX="86.0" layoutY="65.0" prefHeight="26.0" prefWidth="113.0" text="rows" />

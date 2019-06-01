@@ -9,10 +9,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<?import View.MazeDisplayer?>
-<BorderPane onKeyPressed="#KeyPressed" stylesheets="@ViewStyle.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane onKeyPressed="#KeyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +18,7 @@
               <menus>
                   <Menu mnemonicParsing="false" text="File">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#musicBackground" text="New maze" />
+                      <MenuItem mnemonicParsing="false" onAction="#NewMazeMouseClicked" text="New maze" />
                         <MenuItem mnemonicParsing="false" text="Save maze" />
                         <MenuItem mnemonicParsing="false" text="Load maze" />
                     </items>
@@ -41,19 +39,15 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER"/>
-             <MazeDisplayer fx:id="mazeDisplayer" height="450.0"
-                           imageFileNameCharacter="resources/Images/princess.png"
-                           imageFileNameWall="resources/Images/trees.png"
-                           onMouseClicked="#mazeMouseClicked" width="600.0"/>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="600.0" text="HELP THE PRINCESS SAVE HER PRINCE!" textAlignment="CENTER" />
+             <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/princess.png" imageFileNameWall="resources/Images/trees.png" onMouseClicked="#mazeMouseClicked" width="600.0" />
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-             <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE"
-                     onAction="#solve"/>
+             <Button mnemonicParsing="false" onAction="#solve" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE" />
             <Button mnemonicParsing="false" onAction="#StopMusicBackground" text="Stop music" />
          </children>
       </HBox>

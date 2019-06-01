@@ -78,11 +78,12 @@ public class MyViewController extends AController {
         mazeDisplayer.requestFocus();
     }
 
-    public void NewMazeMouseClicked(MouseEvent mouseEvent) throws IOException {
+    public void NewMazeMouseClicked() throws IOException {
+
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
-        Parent root3 = (Parent)FXMLLoader.load();
+        Parent root2 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        stage.setScene(new Scene(root3, 500, 600));
+        stage.setScene(new Scene(root2, 500, 600));
         stage.show();
     }
 
@@ -107,9 +108,27 @@ public class MyViewController extends AController {
         }
     }
 
+    public int[][] getMaze() {
+        return model.getMaze();
+    }
 
     @Override
     public void update(Observable o, Object arg) {
-
+        if (o == MyViewModel) {
+            displayMaze(MyViewModel.getMaze());
+            btn_generateMaze.setDisable(false);
+        }
     }
+
+    @Override
+    public void displayMaze(int[][] maze) {
+        mazeDisplayer.setMaze(maze);
+        int characterPositionRow = MyViewModel.getCharacterPositionRow();
+        int characterPositionColumn = MyViewModel.getCharacterPositionColumn();
+        mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
+        this.characterPositionRow.set(characterPositionRow + "");
+        this.characterPositionColumn.set(characterPositionColumn + "");
+    }
+
+
 }
