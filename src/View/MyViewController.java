@@ -1,25 +1,23 @@
 package View;
-import algorithms.mazeGenerators.MyMazeGenerator;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
-
-import javafx.fxml.FXML;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
 
 
 public class MyViewController extends AController {
@@ -31,6 +29,8 @@ public class MyViewController extends AController {
     //show the maze
     @FXML
     public MazeDisplayer mazeDisplayer;
+    @FXML
+    public Menu loadMazeMenu;
 
 
     //A constructor that plays the music calls it when the window opens
@@ -130,6 +130,50 @@ public class MyViewController extends AController {
         keyEvent.consume();
     }
 
+    //------------------------------menu bar---------------------------//
+
+    public void saveMaze()
+    {
+        MyViewModel.saveMaze();
+    }
+
+    /**
+     * onShowing method for the Load Mazes option in the File menu, on the menu bar.
+     * displays the menu according to the existing mazes
+     */
+    public void showSavedMazes()
+    {
+        ArrayList<String> mazes = MyViewModel.getSavedMazes(); //gets the list of saved mazes
+        if(mazes.size() > 0)
+        {
+            loadMazeMenu.getItems().remove(1, loadMazeMenu.getItems().size()-1);//removes all but the first one
+            for (String mazeName : mazes) {
+                //creates a new menu item for each maze
+                MenuItem menuItem = new MenuItem();
+                menuItem.setMnemonicParsing(false);
+                menuItem.setText(mazeName);
+                menuItem.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        MyViewModel.createMazeFromFile(mazeName);
+                    }
+                });
+                loadMazeMenu.getItems().add(menuItem);
+            }
+            loadMazeMenu.getItems().remove(0); //removes the first item which was not deleted
+        }
+        else //mazes.size == 0
+        {
+            //if there are no mazes- displays an empty menu
+            MenuItem menuItem = new MenuItem();
+            menuItem.setMnemonicParsing(false);
+            menuItem.setText("");
+            loadMazeMenu.getItems().add(menuItem);
+            loadMazeMenu.getItems().remove(0,loadMazeMenu.getItems().size()-1);
+        }
+
+
+    }
 
     // -----------------------------music------------------------------//
     public void musicBackground()

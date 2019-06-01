@@ -12,6 +12,7 @@ public interface IModel {
     int getCharacterPositionRow();
     int getCharacterPositionColumn();
     ArrayList<int[]> solveMaze();
-
-
+    ArrayList<String> getListOfSavedFiles();
+    void createFileFromDB(String fileName);
+    void saveMaze();
 }

@@ -57,4 +57,16 @@ public class Mediation extends Observable implements Observer {
         setChanged();
         notifyObservers();
     }
+
+    public ArrayList<String> getSavedMazes() {
+        return model.getListOfSavedFiles();
+    }
+
+    public void createMazeFromFile(String fileName) {
+        model.createFileFromDB(fileName);
+    }
+
+    public void saveMaze() {
+        model.saveMaze();
+    }
 }
