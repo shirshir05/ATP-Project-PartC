@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
+<AnchorPane prefHeight="301.0" prefWidth="381.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
    <children>
-      <VBox layoutX="240.0" layoutY="65.0" prefHeight="122.0" prefWidth="157.0">
+      <VBox layoutX="180.0" layoutY="38.0" prefHeight="122.0" prefWidth="157.0">
          <children>
-            <TextField fx:id="rowsNum" />
-            <TextField fx:id="ColumnsNum" />
-            <Button id="btn_generateMaze" mnemonicParsing="false" onAction="#createMaze" prefHeight="34.0" prefWidth="161.0" text="Click me!" />
+            <TextField fx:id="rowsNum">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="7.5" left="5.0" right="5.0" top="7.5" />
+               </padding>
+            </TextField>
+            <TextField fx:id="ColumnsNum">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="7.5" left="5.0" right="5.0" top="7.5" />
+               </padding></TextField>
+            <Button id="btn_generateMaze" mnemonicParsing="false" onAction="#createMaze" prefHeight="34.0" prefWidth="161.0" text="CREATE MAZE" />
          </children>
       </VBox>
-      <Label layoutX="86.0" layoutY="65.0" prefHeight="26.0" prefWidth="113.0" text="rows" />
-      <Label layoutX="85.0" layoutY="99.0" prefHeight="26.0" prefWidth="113.0" text="columns" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="163.0" prefHeight="54.0" prefWidth="670.0" text="If the dimensions exceed the permissible dimensions, a 10 × 10 maze will be created." textAlignment="RIGHT" />
-      <Label alignment="CENTER" layoutY="200.0" prefHeight="18.0" prefWidth="670.0" text="For more information click" />
+      <Label fx:id="rows" layoutX="39.0" layoutY="38.0" prefHeight="32.0" prefWidth="113.0" text="ROWS :" />
+      <Label fx:id="columns" layoutX="39.0" layoutY="72.0" prefHeight="39.0" prefWidth="157.0" text="COLUMNS :" />
+      <Label fx:id="explanation1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="190.0" prefHeight="17.0" prefWidth="356.0" text="Note: If the dimensions exceed the permissible" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="93.0" />
+      <Label fx:id="explanation2" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="210.0" prefHeight="17.0" prefWidth="371.0" text=" dimensions, a 10 × 10 maze will be created." AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="62.0" />
+      <Label fx:id="explanation3" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="230.0" prefHeight="17.0" prefWidth="325.0" text="For more information click Help" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="115.0" />
    </children>
 </AnchorPane>

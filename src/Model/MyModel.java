@@ -8,9 +8,6 @@ import Server.Server;
 import Server.ServerStrategyGenerateMaze;
 import Server.ServerStrategySolveSearchProblem;
 import algorithms.mazeGenerators.Maze;
-import Server.*;
-
-import algorithms.mazeGenerators.MyMazeGenerator;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
@@ -20,7 +17,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
@@ -148,6 +144,7 @@ public class MyModel extends Observable implements IModel {
 
     @Override
     public ArrayList<int[]> solveMaze() {
+        if (maze == null) return null;
         ArrayList<int[]>solution = new ArrayList<>();
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {

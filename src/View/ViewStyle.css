@@ -2,6 +2,10 @@
     -fx-background-color:linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 
+Alert{
+    -fx-background-color:linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
 MenuBar{
     -fx-background-color: #DEA468;
     -fx-text-fill: #ffffff;
@@ -28,9 +32,30 @@ MenuBar:hover{
 
 
 Label{
-    -fx-font-family: "Arial";
+   /* -fx-font-family: "Calibri";*/
     -fx-font-size: 27px;
     -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-color: #2C3E50;*/
+}
+
+#rows, #columns{
+    /* -fx-font-family: "Calibri";*/
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-color: #2C3E50;*/
+}
+
+#explanation1, #explanation2, #explanation3{
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50;
+}
+
+#opening1, #opening2, #opening3{
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
     /*-fx-color: #2C3E50;*/
 }
 

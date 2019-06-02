@@ -1,26 +1,13 @@
 package View;
 import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.MyMazeGenerator;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
-
-import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -57,7 +44,7 @@ public class MyViewController extends AController {
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
         Parent root2 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        Scene s = new Scene(root2,500,600);
+        Scene s = new Scene(root2,381,301);
         stage.setScene(s);
 
 
@@ -75,6 +62,7 @@ public class MyViewController extends AController {
         AController view4  = FXMLLoader.getController();
         this.addObserver(view4);
         //show
+        stage.setTitle("MAZES & DRAGONS");
         stage.show();
     }
 

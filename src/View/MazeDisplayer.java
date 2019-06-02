@@ -3,13 +3,10 @@ package View;
 import algorithms.mazeGenerators.Maze;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -113,7 +110,7 @@ public class MazeDisplayer extends Canvas {
     }
 
     public void displayNewSolution(ArrayList<int[]> solution) {
-        if (solutionDisplayed)//enables hiding the solution
+        if (solutionDisplayed || solution == null)//enables hiding the solution
             solutionDisplayed = false;
         else {
             this.solution = solution; //saves the solution so it can be redrawn
