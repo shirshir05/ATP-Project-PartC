@@ -75,6 +75,19 @@ public class MazeDisplayer extends Canvas {
         return PrincePositionColumn;
     }
 
+
+    public MazeDisplayer() {
+        // Redraw canvas when size changes.
+        widthProperty().addListener(evt -> redraw());
+        heightProperty().addListener(evt -> redraw());
+    }
+
+
+    @Override
+    public boolean isResizable() {
+        return true;
+    }
+
     // new maze
     public void setMaze(Maze maze) {
         this.maze = maze;

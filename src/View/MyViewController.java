@@ -1,25 +1,31 @@
 package View;
+
 import algorithms.mazeGenerators.Maze;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 
-public class MyViewController extends AController {
+public class MyViewController extends AController implements Initializable {
 
     // ----------music Background-----//
     private MediaPlayer mediaplayerBackground;
@@ -28,16 +34,29 @@ public class MyViewController extends AController {
     //show the maze
     @FXML
     public MazeDisplayer mazeDisplayer;
-    @FXML
     public Menu loadMazeMenu;
+    public BorderPane BorderPane;
+    public VBox VBox;
 
 
     //A constructor that plays the music calls it when the window opens
     public MyViewController(){
-
-
         musicBackground();
     }
+
+    //<editor-fold desc="Data Binding for Character Row & Column Positions">
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //Set Binding for Properties
+        BorderPane.prefWidthProperty().bind(getStage().widthProperty().multiply(0.9));
+        BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
+        VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
+        VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
+        mazeDisplayer.widthProperty().bind(VBox.prefWidthProperty());
+        mazeDisplayer.heightProperty().bind(VBox.prefHeightProperty());
+    }
+    //</editor-fold>
 
     public void NewMazeMouseClicked() throws IOException {
         //open a new windows -  the generate Maze

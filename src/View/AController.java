@@ -1,13 +1,14 @@
 package View;
 
-import Model.MyModel;
 import ViewModel.Mediation;
-import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public abstract class AController extends Observable implements IView, Observer {
+
+    public static Stage currentStage;
 
     //Defines the program's moderator
     protected static Mediation MyViewModel ;
@@ -18,6 +19,8 @@ public abstract class AController extends Observable implements IView, Observer 
     {
         MyViewModel = viewModel;
     }
+
+    public static Stage getStage(){return currentStage;}
 
     //What to do when the person I'm listening to has changed
     @Override

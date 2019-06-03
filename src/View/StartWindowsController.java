@@ -26,7 +26,6 @@ public class StartWindowsController extends AController {
 
     @FXML
     public static Canvas writing;
-    @FXML
     public Canvas MazesAndDragons;
 
     public static void showPics() {
@@ -52,9 +51,9 @@ public class StartWindowsController extends AController {
 
         //open a new windows -  the main windows
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/MyView.fxml"));
+        currentStage = new Stage();
         Parent root2 = (Parent)FXMLLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root2, 700, 600));
+        currentStage.setScene(new Scene(root2, 700, 600));
         ((Node)actionEvent.getSource()).getScene().getWindow().hide();
         MyViewController m =  new MyViewController();
 
@@ -90,9 +89,9 @@ public class StartWindowsController extends AController {
         MyViewModel.addObserver(view2);
 
         //show
-        stage.setTitle("MAZES & DRAGONS");
-        SetStageCloseEvent(stage);
-        stage.show();
+        currentStage.setTitle("MAZES & DRAGONS");
+        SetStageCloseEvent(currentStage);
+        currentStage.show();
 
     }
 
