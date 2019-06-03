@@ -35,8 +35,7 @@ public class MyViewController extends AController implements Initializable {
     @FXML
     public MazeDisplayer mazeDisplayer;
     public Menu loadMazeMenu;
-    public BorderPane BorderPane;
-    public VBox VBox;
+
 
 
     //A constructor that plays the music calls it when the window opens
@@ -44,7 +43,10 @@ public class MyViewController extends AController implements Initializable {
         musicBackground();
     }
 
-    //<editor-fold desc="Data Binding for Character Row & Column Positions">
+    //<editor-fold desc="Data Binding for Maze size">
+
+    public BorderPane BorderPane;
+    public VBox VBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
