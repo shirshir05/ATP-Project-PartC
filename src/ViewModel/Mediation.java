@@ -2,7 +2,6 @@
 package ViewModel;
 
 import Model.IModel;
-import Model.MyModel;
 import algorithms.mazeGenerators.Maze;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -15,8 +14,6 @@ import java.util.Observer;
 public class Mediation extends Observable implements Observer {
 
     private IModel model;
-    private int characterPositionRowIndex;
-    private int characterPositionColumnIndex;
 
     public StringProperty characterPositionRow = new SimpleStringProperty("1"); //For Binding
     public StringProperty characterPositionColumn = new SimpleStringProperty("1"); //For Binding
@@ -34,19 +31,15 @@ public class Mediation extends Observable implements Observer {
     }
 
     public int getCharacterPositionRow() {
-        return characterPositionRowIndex;
+        return model.getCharacterPositionRow();
     }
 
     public int getCharacterPositionColumn() {
-        return characterPositionColumnIndex;
+        return model.getCharacterPositionColumn();
     }
     @Override
     public void update(Observable o, Object arg) {
         if (o==model){
-            characterPositionRowIndex = model.getCharacterPositionRow();
-            //characterPositionRow.set(characterPositionRowIndex + "");
-            characterPositionColumnIndex = model.getCharacterPositionColumn();
-           // characterPositionColumn.set(characterPositionColumnIndex + "");
             setChanged();
             notifyObservers();
         }

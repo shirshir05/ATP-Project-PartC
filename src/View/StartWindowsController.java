@@ -55,7 +55,7 @@ public class StartWindowsController extends AController {
         Parent root2 = (Parent)FXMLLoader.load();
         currentStage.setScene(new Scene(root2, 700, 600));
         ((Node)actionEvent.getSource()).getScene().getWindow().hide();
-        MyViewController m =  new MyViewController();
+//        MyViewController m =  new MyViewController();
 
 
      /*   Pane rootNew = new Pane();
