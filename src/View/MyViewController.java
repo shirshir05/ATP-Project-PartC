@@ -130,7 +130,7 @@ public class MyViewController extends AController implements Initializable {
         AController view4  = FXMLLoader.getController();
         this.addObserver(view4);
         //show
-        stage.setTitle("MAZES & DRAGONS");
+        stage.setTitle("New Maze");
         stage.show();
     }
 

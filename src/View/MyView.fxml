@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import View.MazeDisplayer?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,11 +9,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="BorderPane" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane fx:id="BorderPane" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,16 +32,33 @@
                         </Menu>
                     </items>
                   </Menu>
-                <Menu mnemonicParsing="false" text="Options">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Properties" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Exit" />
-                <Menu mnemonicParsing="false" text="Help" />
-                  <Menu mnemonicParsing="false" onAction="#musicBackground" text="About" />
               </menus>
             </MenuBar>
+            <Button fx:id="menuItem1" mnemonicParsing="false" text="New Maze" onAction="#NewMazeMouseClicked">
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin></Button>
+            <MenuBar layoutX="173.0" layoutY="10.0" prefHeight="49.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Options">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Properties" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Button fx:id="menuItem2" layoutX="325.0" layoutY="10.0" mnemonicParsing="false" text="About">
+               <HBox.margin>
+                  <Insets right="5.0" top="4.0" />
+               </HBox.margin></Button>
+            <Button fx:id="menuItem3" layoutX="312.0" layoutY="10.0" mnemonicParsing="false" text="Help">
+               <HBox.margin>
+                  <Insets right="6.0" top="4.0" />
+               </HBox.margin></Button>
+            <Button fx:id="menuItem4" layoutX="349.0" layoutY="10.0" mnemonicParsing="false" text="Exit">
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </top>
@@ -58,11 +78,26 @@
       </VBox>
    </center>
    <bottom>
-      <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-             <Button mnemonicParsing="false" onAction="#solve" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE" />
-            <Button mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="30.0" prefWidth="119.0" text="MUSIC ON/OFF" />
+             <Button mnemonicParsing="false" onAction="#solve" prefHeight="25.0" prefWidth="165.0" text="SHOW PATH TO PRINCE">
+               <GridPane.margin>
+                  <Insets bottom="7.0" left="7.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="25.0" prefWidth="165.0" text="MUSIC ON/OFF" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="7.0" right="7.0" />
+               </GridPane.margin>
+            </Button>
          </children>
-      </HBox>
+      </GridPane>
    </bottom>
 </BorderPane>

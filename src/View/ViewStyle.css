@@ -6,9 +6,9 @@ Alert{
     -fx-background-color:linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
 
-MenuBar{
+#menuItem1, #menuItem2,#menuItem3,#menuItem4 ,MenuBar{
     -fx-background-color: #DEA468;
-    -fx-text-fill: #ffffff;
+    /*-fx-text-fill: #ffffff;*/
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
