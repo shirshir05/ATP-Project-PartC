@@ -20,6 +20,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.transform.Rotate;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -41,7 +43,7 @@ public class MyViewController extends AController implements Initializable {
     @FXML
     public MazeDisplayer mazeDisplayer;
     public Menu loadMazeMenu;
-
+   // public Pane pane;
 
 
     //A constructor that plays the music calls it when the window opens
@@ -53,6 +55,7 @@ public class MyViewController extends AController implements Initializable {
 
     public BorderPane BorderPane;
     public VBox VBox;
+    //public Pane pane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,11 +64,13 @@ public class MyViewController extends AController implements Initializable {
         BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
         VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
         VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
-        mazeDisplayer.widthProperty().bind(VBox.prefWidthProperty());
-        mazeDisplayer.heightProperty().bind(VBox.prefHeightProperty());
+        //pane.prefWidthProperty().bind(VBox.prefWidthProperty());
+        //pane.prefHeightProperty().bind(VBox.prefHeightProperty());
+        mazeDisplayer.widthProperty().bind(/*pane*/BorderPane.prefWidthProperty());
+        mazeDisplayer.heightProperty().bind(/*pane*/BorderPane.prefHeightProperty());
         currentStage.addEventHandler(ScrollEvent.SCROLL,event ->  {
             if(event.isControlDown()) {
-/*                double delta = event.getDeltaY();
+                /*double delta = event.getDeltaY();
                 mazeDisplayer.translateZProperty().set(mazeDisplayer.getTranslateZ() + delta);*/
 
 /*                double delta = 1.2;
@@ -95,6 +100,16 @@ public class MyViewController extends AController implements Initializable {
             event.consume();
         });
     }
+
+
+    private void initi(){
+
+        Rotate x;
+        Rotate Y;
+
+    }
+
+
 
     public static double clamp( double value, double min, double max) {
 
@@ -131,7 +146,7 @@ public class MyViewController extends AController implements Initializable {
         AController view4  = FXMLLoader.getController();
         this.addObserver(view4);
         //show
-        stage.setTitle("MAZES & DRAGONS");
+        stage.setTitle("New Maze");
         stage.show();
     }
 
@@ -148,7 +163,7 @@ public class MyViewController extends AController implements Initializable {
 
     public void displayMaze(Maze maze) {
         //Update location of characters
-         int characterPositionRow = MyViewModel.getCharacterPositionRow();
+        int characterPositionRow = MyViewModel.getCharacterPositionRow();
         int characterPositionColumn = MyViewModel.getCharacterPositionColumn();
         mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //A function that draws the maze
@@ -272,11 +287,33 @@ public class MyViewController extends AController implements Initializable {
 
     public void openHelp() throws IOException {
 
-        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindowsController.fxml"));
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindows.fxml"));
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        Scene s = new Scene(root3,509,402);
+        Scene s = new Scene(root3,900,900);
+        stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+
         stage.setScene(s);
+        stage.show();
+    }
+
+
+    //-------------------------About--------------------//
+
+    public void About(ActionEvent actionEvent) {
+        try {
+            Stage stage = new Stage();
+            stage.setTitle("About");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root = fxmlLoader.load(getClass().getResource("AboutWindows.fxml").openStream());
+            Scene scene = new Scene(root, 900, 900);
+            stage.setScene(scene);
+            scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
+            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+            stage.show();
+        } catch (Exception e) {
+
+        }
     }
 
 }

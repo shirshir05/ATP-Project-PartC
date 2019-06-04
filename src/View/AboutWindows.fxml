@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.AboutController"
+            stylesheets="@ViewStyle.css"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <BorderPane prefHeight="402.0" prefWidth="590.0">
+            <center>
+                <VBox prefHeight="1010.0" prefWidth="682.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label prefHeight="21.0" prefWidth="394.0" text="Option button - contains a Properties file containing the settings of the application." />
+                        <Label fx:id="opening1" alignment="CENTER" contentDisplay="CENTER" prefWidth="590.0" text="Welcome to the game!">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="opening2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="60.0" prefWidth="590.0" text="The purpose of this screen is to help you understand the game.">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="607.0" text="Your mission: save the prince from the cruel dragon." />
+                        <Label prefHeight="18.0" prefWidth="589.0" text="Your character is represented by a princess." />
+                        <Label text="The prince (target) is represented by the figure of a prince and a dragon." />
+                        <Label text="You can move by keyboard keys:" />
+                        <Label text="Key number 1 - lower diagonal left." />
+                        <Label fx:id="opening3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="60.0" text="Number key 2 or DOWN - Move down." BorderPane.alignment="TOP_LEFT" />
+                        <Label text="Number key 3 - lower diagonal to the right." />
+                        <Label prefHeight="21.0" prefWidth="495.0" text="Key number 4 or LEFT - Move left." />
+                        <Label prefHeight="39.0" prefWidth="678.0" text="Key number 6 or RIGHT key - move to the right." />
+                        <Label text="Key number 7 - Upper diagonal left." />
+                        <Label text="Key number 8 or UP key - scroll up." />
+                        <Label text="Key number 9 - Upper diagonal to the right." />
+                        <Label text="The SHOW PATH TO PRINCE button will show you the solution to the Prince." />
+                        <Label text="MUSIC ON / OFF button - A button that turns the music on or off." />
+                        <Label text="The File button contains three different options:" />
+                        <Label text="1. NEM MAZE - Creates a new maze according to sizes as defined." />
+                        <Label prefHeight="21.0" prefWidth="590.0" text="2. Save maze - saves the existing maze by timestamp." />
+                        <Label prefHeight="21.0" prefWidth="540.0" text="3. Load maze - You can load an old maze that you saved" />
+                        <Label prefHeight="21.0" prefWidth="387.0" text="New MAZE button - creates a new maze, note that you can produce a maze at least size 4." />
+                        <Label prefHeight="21.0" prefWidth="514.0" text="Exit button - Exit the game.About button - Explanation of the application." />
+                        <Label prefHeight="21.0" prefWidth="600.0" text="We're here to help you get through your mission - good luck!" />
+                    </children>
+                    <padding>
+                        <Insets top="50.0" />
+                    </padding>
+                </VBox>
+            </center>
+            <top>
+                <Label text="MAZES &amp; DRAGONS" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets top="30.0" />
+                    </BorderPane.margin>
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Label>
+            </top>
+        </BorderPane>
+    </children>
+
+</AnchorPane>
