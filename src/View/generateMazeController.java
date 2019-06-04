@@ -25,6 +25,10 @@ public class generateMazeController extends AController {
         try {
             int heigth = Integer.valueOf(rowsNum.getText());
             int width = Integer.valueOf(ColumnsNum.getText());
+            if(heigth <=3 || width<=3){
+                heigth = 10;
+                width = 10;
+            }
             MyViewModel.generateMaze(heigth,width);
             ((Node)actionEvent.getSource()).getScene().getWindow().hide();
         } catch (Exception e) {

@@ -1,18 +1,19 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
+import com.sun.deploy.uitoolkit.DragContext;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -25,6 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,7 +50,10 @@ public class MyViewController extends AController implements Initializable {
 
     //A constructor that plays the music calls it when the window opens
     public MyViewController(){
-        musicBackground();
+        if(flagToMusicBackground == false){
+            musicBackground();
+
+        }
     }
 
     //<editor-fold desc="Data Binding for Maze size">
@@ -101,27 +106,6 @@ public class MyViewController extends AController implements Initializable {
         });
     }
 
-
-    private void initi(){
-
-        Rotate x;
-        Rotate Y;
-
-    }
-
-
-
-    public static double clamp( double value, double min, double max) {
-
-        if( Double.compare(value, min) < 0)
-            return min;
-
-        if( Double.compare(value, max) > 0)
-            return max;
-
-        return value;
-    }
-    //</editor-fold>
 
     public void NewMazeMouseClicked() throws IOException {
         //open a new windows -  the generate Maze
@@ -315,5 +299,7 @@ public class MyViewController extends AController implements Initializable {
 
         }
     }
+
+
 
 }
