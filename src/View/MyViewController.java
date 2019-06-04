@@ -145,6 +145,12 @@ public class MyViewController extends AController implements Initializable {
     public void saveMaze()
     {
         MyViewModel.saveMaze();
+        if (!(MyViewModel.getMaze() == null)) {//alert will show only if there is a maze
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("");
+            alert.setHeaderText("Maze Saved");
+            alert.show();
+        }
     }
 
     /**
@@ -156,7 +162,7 @@ public class MyViewController extends AController implements Initializable {
         ArrayList<String> mazes = MyViewModel.getSavedMazes(); //gets the list of saved mazes
         if(mazes.size() > 0)
         {
-            loadMazeMenu.getItems().remove(1, loadMazeMenu.getItems().size()-1);//removes all but the first one
+            loadMazeMenu.getItems().remove(0, loadMazeMenu.getItems().size()-1);//removes all but the first one
             for (String mazeName : mazes) {
                 //creates a new menu item for each maze
                 MenuItem menuItem = new MenuItem();

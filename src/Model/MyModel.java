@@ -233,6 +233,10 @@ public class MyModel extends Observable implements IModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        finally {
+            setChanged();
+            notifyObservers();
+        }
     }
 
 
@@ -344,7 +348,7 @@ public class MyModel extends Observable implements IModel {
         }
         else if (keyEvent.getCode() == KeyCode.HOME) {
             characterPositionRow =maze.getStartPosition().getRowIndex();
-            characterPositionColumn = maze.getStartPosition().getRowIndex();
+            characterPositionColumn = maze.getStartPosition().getColumnIndex();
         }
         else{
             keyEvent.consume();
