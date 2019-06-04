@@ -59,4 +59,9 @@ public class Mediation extends Observable implements Observer {
     public void saveMaze() {
         model.saveMaze();
     }
+
+    public void StopServer(){
+            model.stopServers();
+
+    }
 }

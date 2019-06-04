@@ -158,6 +158,10 @@ public class MyViewController extends AController implements Initializable {
             alert.setContentText("Love Wins!");
             alert.setHeaderText("You've Reached the End - Very Good");
             alert.show();
+            Media musicSound = new Media(getClass().getResource("/Audio/Success Sound Effects All Sounds.mp3").toString());
+             MediaPlayer musicSound1 = new MediaPlayer(musicSound);
+            musicSound1.setVolume(0.5);
+            musicSound1.play();
         }
 
         //this.characterPositionRow.set(characterPositionRow + "");
@@ -248,15 +252,15 @@ public class MyViewController extends AController implements Initializable {
     }
 
     public void StopMusicBackground() {
-        if(flagToMusicBackground){
+        if(flagToMusicBackground == false){
+            musicBackground();
+        }
+       else{
             mediaplayerBackground.stop();
             flagToMusicBackground =  false;
 
         }
-        if(flagToMusicBackground == false){
-            musicBackground();
 
-        }
     }
 
 }

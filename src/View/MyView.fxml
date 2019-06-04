@@ -61,7 +61,7 @@
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
              <Button mnemonicParsing="false" onAction="#solve" prefHeight="31.0" prefWidth="190.0" text="SHOW PATH TO PRINCE" />
-            <Button mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="30.0" prefWidth="119.0" text="music" />
+            <Button mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="30.0" prefWidth="119.0" text="MUSIC ON/OFF" />
          </children>
       </HBox>
    </bottom>

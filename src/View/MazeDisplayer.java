@@ -91,6 +91,7 @@ public class MazeDisplayer extends Canvas {
     // new maze
     public void setMaze(Maze maze) {
         this.maze = maze;
+        //maze.print();
         if(characterPositionColumn == maze.getStartPosition().getColumnIndex() && characterPositionRow==maze.getStartPosition().getRowIndex()){
             solutionDisplayed = false;
         }
@@ -160,9 +161,6 @@ public class MazeDisplayer extends Canvas {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));
             alert.show();
-
-
-
         }
     }
 
@@ -184,7 +182,7 @@ public class MazeDisplayer extends Canvas {
 
             for (int i = 0; i < solution.size(); i++) {
                 graphicsContext2D.drawImage(pathImage, solution.get(i)[1]*cellWidth,solution.get(i)[0]* cellHeight,cellWidth  , cellHeight);
-              //  System.out.println(solution.get(i)[0] + ", " + solution.get(i)[1]);
+                System.out.println(solution.get(i)[0] + ", " + solution.get(i)[1]);
             }
         } catch (FileNotFoundException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

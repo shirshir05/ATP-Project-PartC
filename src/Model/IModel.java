@@ -13,6 +13,8 @@ public interface IModel {
     int getCharacterPositionColumn();
     ArrayList<int[]> solveMaze();
 
+
+     void stopServers();
     void keyPressed(KeyEvent keyEvent);
     ArrayList<String> getListOfSavedFiles();
     void createFileFromDB(String fileName);
