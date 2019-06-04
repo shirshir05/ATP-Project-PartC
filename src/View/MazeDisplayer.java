@@ -160,6 +160,9 @@ public class MazeDisplayer extends Canvas {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));
             alert.show();
+
+
+
         }
     }
 

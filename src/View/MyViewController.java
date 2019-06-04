@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
@@ -105,6 +106,13 @@ public class MyViewController extends AController implements Initializable {
         mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //A function that draws the maze
         mazeDisplayer.setMaze(maze);
+        // thr princes get to ths end
+        if(characterPositionRow ==  maze.getGoalPosition().getRowIndex() && characterPositionColumn == maze.getGoalPosition().getColumnIndex()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Love Wins!");
+            alert.setHeaderText("You've Reached the End - Very Good");
+            alert.show();
+        }
 
         //this.characterPositionRow.set(characterPositionRow + "");
         //this.characterPositionColumn.set(characterPositionColumn + "");
