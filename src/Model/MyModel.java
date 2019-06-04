@@ -243,7 +243,7 @@ public class MyModel extends Observable implements IModel {
     public void KeyPressed(KeyEvent keyEvent) {
         if(maze==null) return;
         int[][] mazeArray = maze.getM_maze();
-        if (keyEvent.getCode() == KeyCode.UP) {
+        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 ) {
             if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn >= maze.getNumberOfColumns()-1)  {
                 musicFail();
             }
@@ -256,7 +256,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.DOWN) {
+        } else if (keyEvent.getCode() == KeyCode.DOWN ||  keyEvent.getCode() ==KeyCode.DIGIT2) {
             if(characterPositionRow+1 > maze.getNumberOfRows()-1||  characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow+1 < 0 ||characterPositionColumn < 0 )  {
                 musicFail();
             }
@@ -270,7 +270,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.RIGHT) {
+        } else if (keyEvent.getCode() == KeyCode.RIGHT ||  keyEvent.getCode() ==KeyCode.DIGIT6) {
             if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn-1 > maze.getNumberOfColumns()-1 || characterPositionRow < 0 ||characterPositionColumn-1 < 0 )  {
                 musicFail();
             }
@@ -282,7 +282,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn + 1;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.LEFT) {
+        } else if (keyEvent.getCode() == KeyCode.LEFT  || keyEvent.getCode() ==KeyCode.DIGIT4) {
             if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn-1 >maze.getNumberOfColumns()-1 || characterPositionRow <0 || characterPositionColumn-1 <0)  {
                 musicFail();
             }
