@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        /////
+
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("../View/StartWindows.fxml").openStream());
         primaryStage.setTitle("MAZES & DRAGONS");
@@ -19,9 +19,8 @@ public class Main extends Application {
         scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
         primaryStage.setScene(scene);
         StartWindowsController.SetStageCloseEvent(primaryStage);
-        //
+        StartWindowsController.currentStage = primaryStage;
         primaryStage.show();
-
     }
 
 

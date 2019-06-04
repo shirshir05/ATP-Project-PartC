@@ -91,7 +91,8 @@ public class MazeDisplayer extends Canvas {
     // new maze
     public void setMaze(Maze maze) {
         this.maze = maze;
-        if(PrincePositionColumn == maze.getStartPosition().getColumnIndex() && PrincePositionRow==maze.getStartPosition().getRowIndex()){
+        //maze.print();
+        if(characterPositionColumn == maze.getStartPosition().getColumnIndex() && characterPositionRow==maze.getStartPosition().getRowIndex()){
             solutionDisplayed = false;
         }
         redraw();
@@ -118,7 +119,7 @@ public class MazeDisplayer extends Canvas {
                 drawSolution(cellHeight,cellWidth,graphicsContext2D);
             drawCharacter(cellHeight,cellWidth,graphicsContext2D);
             drawCharacterPrince(cellHeight,cellWidth,graphicsContext2D);
-            maze.print();
+            //maze.print();
         }
     }
 
@@ -160,9 +161,6 @@ public class MazeDisplayer extends Canvas {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));
             alert.show();
-
-
-
         }
     }
 

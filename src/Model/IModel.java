@@ -16,6 +16,7 @@ public interface IModel {
 
 
     void KeyPressed(KeyEvent keyEvent);
+    public void stopServers();
     ArrayList<String> getListOfSavedFiles();
     void createFileFromDB(String fileName);
     void saveMaze();

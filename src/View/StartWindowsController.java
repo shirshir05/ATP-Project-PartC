@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 import java.io.FileInputStream;
@@ -27,6 +28,8 @@ public class StartWindowsController extends AController {
     @FXML
     public static Canvas writing;
     public Canvas MazesAndDragons;
+
+
 
     public static void showPics() {
         try {
@@ -43,38 +46,20 @@ public class StartWindowsController extends AController {
     public void startGame(javafx.event.ActionEvent actionEvent) throws Exception{
         //definition
         MyModel model = new MyModel();
-        model.startServers();
         MyViewModel = new Mediation(model);
         //start the music
         MyViewController MyViewController = new MyViewController();
-
+        //start server
+        model.startServers();
 
         //open a new windows -  the main windows
-        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/MyView.fxml"));
+        //currentStage = new Stage();
+        currentStage.close();
         currentStage = new Stage();
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/MyView.fxml"));
         Parent root2 = (Parent)FXMLLoader.load();
         currentStage.setScene(new Scene(root2, 700, 600));
-        ((Node)actionEvent.getSource()).getScene().getWindow().hide();
-//        MyViewController m =  new MyViewController();
-
-
-     /*   Pane rootNew = new Pane();
-        MazeDisplayer mazeDisplayer =new MazeDisplayer();
-        rootNew.getChildren().add(mazeDisplayer);
-        rootNew.heightProperty().addListener(new ChangeListener<Object>() {
-            @Override
-            public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
-                double height = (double)newValue;
-                mazeDisplayer.setHeight(height/2);
-            }
-        });
-        rootNew.widthProperty().addListener(new ChangeListener<Object>() {
-            @Override
-            public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
-                double width = (double)newValue;
-                mazeDisplayer.setWidth(width/2);
-            }
-        });*/
+        SetStageCloseEvent(currentStage);
 
         //definition model and MyViewModel Observer
         model.addObserver(MyViewModel);
@@ -96,21 +81,6 @@ public class StartWindowsController extends AController {
     }
 
 
-    public static void SetStageCloseEvent(Stage primaryStage) {
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent windowEvent) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit?");
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
-                    // ... user chose OK
-                    // Close program
-                } else {
-                    // ... user chose CANCEL or closed the dialog
-                    windowEvent.consume();
-                }
-            }
-        });
-    }
 
     @Override
     public void update(Observable o, Object arg) {
