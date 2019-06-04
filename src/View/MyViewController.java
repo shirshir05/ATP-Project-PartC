@@ -1,6 +1,7 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
@@ -19,11 +21,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -200,6 +204,10 @@ public class MyViewController extends AController implements Initializable {
         }
     }
 
+    public  void setClose() {
+        SetStageCloseEvent(currentStage);
+
+    }
     /**
      * onShowing method for the Load Mazes option in the File menu, on the menu bar.
      * displays the menu according to the existing mazes
@@ -258,6 +266,17 @@ public class MyViewController extends AController implements Initializable {
 
         }
 
+    }
+
+    //---------------------------help------------------------//
+
+    public void openHelp() throws IOException {
+
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindowsController.fxml"));
+        Parent root3 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        Scene s = new Scene(root3,509,402);
+        stage.setScene(s);
     }
 
 }

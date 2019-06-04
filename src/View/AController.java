@@ -58,5 +58,4 @@ public abstract class AController extends Observable implements IView, Observer 
             }
         });
     }
-
 }

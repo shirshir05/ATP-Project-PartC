@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -33,7 +34,10 @@
                     <MenuItem mnemonicParsing="false" text="Properties" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Exit" />
+                <Menu mnemonicParsing="false" text="Exit">
+                     <items>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Help" />
                   <Menu mnemonicParsing="false" onAction="#musicBackground" text="About" />
               </menus>
