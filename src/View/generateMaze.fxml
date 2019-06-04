@@ -32,7 +32,7 @@
       <Label fx:id="rows" layoutX="39.0" layoutY="38.0" prefHeight="32.0" prefWidth="113.0" text="ROWS :" />
       <Label fx:id="columns" layoutX="39.0" layoutY="72.0" prefHeight="39.0" prefWidth="157.0" text="COLUMNS :" />
       <Label fx:id="explanation1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="190.0" prefHeight="17.0" prefWidth="356.0" text="Note: If the dimensions exceed the permissible" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="93.0" />
-      <Label fx:id="explanation2" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="210.0" prefHeight="17.0" prefWidth="371.0" text=" dimensions, a 10 × 10 maze will be created." AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="62.0" />
-      <Label fx:id="explanation3" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="230.0" prefHeight="17.0" prefWidth="325.0" text="For more information click Help" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="115.0" />
+      <Label fx:id="explanation2" contentDisplay="CENTER" layoutX="14.0" layoutY="212.0" prefHeight="17.0" prefWidth="371.0" text=" dimensions, a 10 × 10 maze will be created." AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="76.0" />
+      <Label fx:id="explanation3" contentDisplay="CENTER" layoutX="16.0" layoutY="233.0" prefHeight="17.0" prefWidth="325.0" text="For more information click Help" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="120.0" />
    </children>
 </AnchorPane>
