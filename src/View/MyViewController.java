@@ -1,6 +1,7 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
@@ -18,12 +20,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.transform.Rotate;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -94,6 +100,16 @@ public class MyViewController extends AController implements Initializable {
             event.consume();
         });
     }
+
+
+    private void initi(){
+
+        Rotate x;
+        Rotate Y;
+
+    }
+
+
 
     public static double clamp( double value, double min, double max) {
 
@@ -203,6 +219,10 @@ public class MyViewController extends AController implements Initializable {
         }
     }
 
+    public  void setClose() {
+        SetStageCloseEvent(currentStage);
+
+    }
     /**
      * onShowing method for the Load Mazes option in the File menu, on the menu bar.
      * displays the menu according to the existing mazes
@@ -261,6 +281,39 @@ public class MyViewController extends AController implements Initializable {
 
         }
 
+    }
+
+    //---------------------------help------------------------//
+
+    public void openHelp() throws IOException {
+
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindows.fxml"));
+        Parent root3 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        Scene s = new Scene(root3,900,900);
+        stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+
+        stage.setScene(s);
+        stage.show();
+    }
+
+
+    //-------------------------About--------------------//
+
+    public void About(ActionEvent actionEvent) {
+        try {
+            Stage stage = new Stage();
+            stage.setTitle("About");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root = fxmlLoader.load(getClass().getResource("AboutWindows.fxml").openStream());
+            Scene scene = new Scene(root, 900, 900);
+            stage.setScene(scene);
+            scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
+            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+            stage.show();
+        } catch (Exception e) {
+
+        }
     }
 
 }

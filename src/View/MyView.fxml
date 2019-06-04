@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import View.MazeDisplayer?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="BorderPane" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
+<BorderPane fx:id="BorderPane" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
    <top>
       <HBox prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,7 +33,7 @@
                   </Menu>
               </menus>
             </MenuBar>
-            <Button fx:id="menuItem1" mnemonicParsing="false" text="New Maze" onAction="#NewMazeMouseClicked">
+            <Button fx:id="menuItem1" mnemonicParsing="false" onAction="#NewMazeMouseClicked" text="New Maze">
                <HBox.margin>
                   <Insets top="4.0" />
                </HBox.margin></Button>
@@ -47,11 +46,11 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <Button fx:id="menuItem2" layoutX="325.0" layoutY="10.0" mnemonicParsing="false" text="About">
+            <Button fx:id="menuItem2" layoutX="325.0" layoutY="10.0" mnemonicParsing="false" onAction="#About" text="About">
                <HBox.margin>
                   <Insets right="5.0" top="4.0" />
                </HBox.margin></Button>
-            <Button fx:id="menuItem3" layoutX="312.0" layoutY="10.0" mnemonicParsing="false" text="Help">
+            <Button fx:id="menuItem3" layoutX="312.0" layoutY="10.0" mnemonicParsing="false" onAction="#openHelp" text="Help">
                <HBox.margin>
                   <Insets right="6.0" top="4.0" />
                </HBox.margin></Button>
