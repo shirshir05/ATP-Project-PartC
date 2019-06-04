@@ -37,7 +37,7 @@ public class MyViewController extends AController implements Initializable {
     @FXML
     public MazeDisplayer mazeDisplayer;
     public Menu loadMazeMenu;
-
+   // public Pane pane;
 
 
     //A constructor that plays the music calls it when the window opens
@@ -49,6 +49,7 @@ public class MyViewController extends AController implements Initializable {
 
     public BorderPane BorderPane;
     public VBox VBox;
+    //public Pane pane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,11 +58,13 @@ public class MyViewController extends AController implements Initializable {
         BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
         VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
         VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
-        mazeDisplayer.widthProperty().bind(VBox.prefWidthProperty());
-        mazeDisplayer.heightProperty().bind(VBox.prefHeightProperty());
+        //pane.prefWidthProperty().bind(VBox.prefWidthProperty());
+        //pane.prefHeightProperty().bind(VBox.prefHeightProperty());
+        mazeDisplayer.widthProperty().bind(/*pane*/BorderPane.prefWidthProperty());
+        mazeDisplayer.heightProperty().bind(/*pane*/BorderPane.prefHeightProperty());
         currentStage.addEventHandler(ScrollEvent.SCROLL,event ->  {
             if(event.isControlDown()) {
-/*                double delta = event.getDeltaY();
+                /*double delta = event.getDeltaY();
                 mazeDisplayer.translateZProperty().set(mazeDisplayer.getTranslateZ() + delta);*/
 
 /*                double delta = 1.2;
@@ -144,7 +147,7 @@ public class MyViewController extends AController implements Initializable {
 
     public void displayMaze(Maze maze) {
         //Update location of characters
-         int characterPositionRow = MyViewModel.getCharacterPositionRow();
+        int characterPositionRow = MyViewModel.getCharacterPositionRow();
         int characterPositionColumn = MyViewModel.getCharacterPositionColumn();
         mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //A function that draws the maze

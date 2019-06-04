@@ -9,6 +9,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="BorderPane" onKeyPressed="#keyPressed" prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController">
@@ -48,7 +49,11 @@
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin></Label>
-             <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/princess.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" onMouseClicked="#mazeMouseClicked" width="600.0" />
+            <!--<Pane fx:id="pane" prefHeight="450.0" prefWidth="600.0" nodeOrientation="INHERIT">-->
+               <!--<children>-->
+                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/princess.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
+               <!--</children>-->
+            <!--</Pane>-->
          </children>
       </VBox>
    </center>
