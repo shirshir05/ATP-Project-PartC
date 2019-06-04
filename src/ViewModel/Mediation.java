@@ -3,8 +3,6 @@ package ViewModel;
 
 import Model.IModel;
 import algorithms.mazeGenerators.Maze;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
@@ -14,9 +12,6 @@ import java.util.Observer;
 public class Mediation extends Observable implements Observer {
 
     private IModel model;
-
-    public StringProperty characterPositionRow = new SimpleStringProperty("1"); //For Binding
-    public StringProperty characterPositionColumn = new SimpleStringProperty("1"); //For Binding
 
     public Mediation(IModel model) {
         this.model = model;
