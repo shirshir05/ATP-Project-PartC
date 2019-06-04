@@ -11,6 +11,7 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
@@ -22,6 +23,7 @@ import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -236,10 +238,16 @@ public class MyModel extends Observable implements IModel {
             in.read(currByteArray);
             in.close();
             maze = new Maze(currByteArray);
+            characterPositionColumn = maze.getStartPosition().getColumnIndex();
+            characterPositionRow = maze.getStartPosition().getRowIndex();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        finally {
+            setChanged();
+            notifyObservers();
         }
     }
 
@@ -248,11 +256,12 @@ public class MyModel extends Observable implements IModel {
         return maze;
     }
 
-    public void KeyPressed(KeyEvent keyEvent) {
+    public void keyPressed(KeyEvent keyEvent) {
         if(maze==null) return;
         int[][] mazeArray = maze.getM_maze();
-        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 ) {
-            if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn >= maze.getNumberOfColumns()-1)  {
+        System.out.println(keyEvent.getCode());
+        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 || keyEvent.getCode() == KeyCode.NUMPAD8) {//-1 , 0
+            if(characterPositionRow-1 > maze.getNumberOfRows()-1 || characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow-1 <0 ||characterPositionColumn<0)  {
                 musicFail();
             }
 
@@ -264,7 +273,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.DOWN ||  keyEvent.getCode() ==KeyCode.DIGIT2 || keyEvent.getCode() ==KeyCode.SOFTKEY_2) {
+        } else if (keyEvent.getCode() == KeyCode.DOWN ||  keyEvent.getCode() ==KeyCode.DIGIT2 || keyEvent.getCode() == KeyCode.NUMPAD2) { // 1 ,0
             if(characterPositionRow+1 > maze.getNumberOfRows()-1||  characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow+1 < 0 ||characterPositionColumn < 0 )  {
                 musicFail();
             }
@@ -278,8 +287,8 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.RIGHT ||  keyEvent.getCode() ==KeyCode.DIGIT6) {
-            if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn+1 > maze.getNumberOfColumns()-1 || characterPositionRow < 0 ||characterPositionColumn-1 < 0 )  {
+        } else if (keyEvent.getCode() == KeyCode.RIGHT ||  keyEvent.getCode() ==KeyCode.DIGIT6 || keyEvent.getCode() == KeyCode.NUMPAD6) { // 0 ,1
+            if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn+1 > maze.getNumberOfColumns()-1 || characterPositionRow < 0 ||characterPositionColumn+1 < 0 )  {
                 musicFail();
             }
             else if(mazeArray[characterPositionRow][characterPositionColumn+1] == 1){
@@ -290,7 +299,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn + 1;
             }
 
-        } else if (keyEvent.getCode() == KeyCode.LEFT  || keyEvent.getCode() ==KeyCode.DIGIT4) {
+        } else if (keyEvent.getCode() == KeyCode.LEFT  || keyEvent.getCode() ==KeyCode.DIGIT4 || keyEvent.getCode() == KeyCode.NUMPAD4) {//0 ,-1
             if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn-1 >maze.getNumberOfColumns()-1 || characterPositionRow <0 || characterPositionColumn-1 <0)  {
                 musicFail();
             }
@@ -301,7 +310,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionRow = characterPositionRow;
                 characterPositionColumn = characterPositionColumn - 1;
             }
-        }  else if (keyEvent.getCode() == KeyCode.DIGIT7) {//Upper left
+        }  else if (keyEvent.getCode() == KeyCode.DIGIT7 || keyEvent.getCode() == KeyCode.NUMPAD7) {//Upper left -1, -1
             if(characterPositionRow-1 > maze.getNumberOfRows()-1 || characterPositionColumn-1 > maze.getNumberOfColumns()-1 || characterPositionColumn-1 < 0 || characterPositionRow-1 < 0)  {
                 musicFail();
             }
@@ -313,7 +322,7 @@ public class MyModel extends Observable implements IModel {
                 characterPositionColumn = characterPositionColumn - 1;
             }
 
-        }else if (keyEvent.getCode() == KeyCode.DIGIT9) {//Upper right
+        }else if (keyEvent.getCode() == KeyCode.DIGIT9 || keyEvent.getCode() == KeyCode.NUMPAD9) {//Upper right -1 1
             if(characterPositionRow-1 > maze.getNumberOfRows()-1 || characterPositionColumn+1 > maze.getNumberOfColumns()-1 || characterPositionRow-1<0 || characterPositionColumn+1<0)  {
                 musicFail();
             }
@@ -324,8 +333,8 @@ public class MyModel extends Observable implements IModel {
                 characterPositionRow = characterPositionRow-1;
                 characterPositionColumn = characterPositionColumn + 1;
             }
-        }else if (keyEvent.getCode() == KeyCode.DIGIT1) {//Lower left
-            if(characterPositionRow+1 > maze.getNumberOfRows()-1 || characterPositionColumn-1 > maze.getNumberOfColumns()-1 || characterPositionColumn-1 <0 || characterPositionRow+1<0)  {
+        }else if (keyEvent.getCode() == KeyCode.DIGIT1 || keyEvent.getCode() == KeyCode.NUMPAD1) {//Lower left 1 -1
+            if(characterPositionRow+1 > maze.getNumberOfRows()-1 || characterPositionColumn-1 > maze.getNumberOfColumns()-1 || characterPositionRow+1<0 ||characterPositionColumn-1 <0 )  {
                 musicFail();
             }
             else if(mazeArray[characterPositionRow+1][characterPositionColumn-1] == 1){
@@ -337,7 +346,7 @@ public class MyModel extends Observable implements IModel {
             }
 
         }
-        else if (keyEvent.getCode() == KeyCode.DIGIT3) {//Lower right
+        else if (keyEvent.getCode() == KeyCode.DIGIT3 || keyEvent.getCode() == KeyCode.NUMPAD3) {//Lower right 1 1
             if(characterPositionRow+1 > maze.getNumberOfRows()-1 || characterPositionColumn+1 > maze.getNumberOfColumns()-1 || characterPositionRow+1 < 0 || characterPositionColumn+1 <0)  {
                 musicFail();
             }

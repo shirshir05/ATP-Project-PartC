@@ -1,7 +1,6 @@
 package Model;
 
 import algorithms.mazeGenerators.Maze;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
@@ -15,8 +14,8 @@ public interface IModel {
     ArrayList<int[]> solveMaze();
 
 
-    void KeyPressed(KeyEvent keyEvent);
-    public void stopServers();
+     void stopServers();
+    void keyPressed(KeyEvent keyEvent);
     ArrayList<String> getListOfSavedFiles();
     void createFileFromDB(String fileName);
     void saveMaze();
