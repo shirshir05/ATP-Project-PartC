@@ -167,7 +167,7 @@ public class MazeDisplayer extends Canvas {
     private void drawCharacterPrince(double cellHeight, double cellWidth,GraphicsContext graphicsContext2D) {
         try {
             Image characterImage = new Image(new FileInputStream(ImageFileNamePrince.get()));
-            graphicsContext2D.drawImage(characterImage,getPrincePositionColumn()* cellWidth, getPrincePositionRow() * cellHeight, cellHeight, cellHeight);
+            graphicsContext2D.drawImage(characterImage,PrincePositionColumn* cellWidth, PrincePositionRow * cellHeight, cellWidth*1.05, cellHeight*1.02);
         } catch (FileNotFoundException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));

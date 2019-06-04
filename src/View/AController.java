@@ -5,7 +5,6 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Control;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
