@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+//import java.awt.event.KeyEvent;
 
 public class MyModel extends Observable implements IModel {
 
@@ -228,6 +229,8 @@ public class MyModel extends Observable implements IModel {
             in.read(currByteArray);
             in.close();
             maze = new Maze(currByteArray);
+            characterPositionColumn = maze.getStartPosition().getColumnIndex();
+            characterPositionRow = maze.getStartPosition().getRowIndex();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -244,10 +247,10 @@ public class MyModel extends Observable implements IModel {
         return maze;
     }
 
-    public void KeyPressed(KeyEvent keyEvent) {
+    public void keyPressed(KeyEvent keyEvent) {
         if(maze==null) return;
         int[][] mazeArray = maze.getM_maze();
-        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 ) {
+        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 || keyEvent.getCode() == KeyCode.SOFTKEY_8) {
             if(characterPositionRow-1 <= maze.getNumberOfRows()-1 && characterPositionColumn >= maze.getNumberOfColumns()-1)  {
                 musicFail();
             }

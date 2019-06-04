@@ -13,6 +13,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -58,6 +59,48 @@ public class MyViewController extends AController implements Initializable {
         VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
         mazeDisplayer.widthProperty().bind(VBox.prefWidthProperty());
         mazeDisplayer.heightProperty().bind(VBox.prefHeightProperty());
+        currentStage.addEventHandler(ScrollEvent.SCROLL,event ->  {
+            if(event.isControlDown()) {
+/*                double delta = event.getDeltaY();
+                mazeDisplayer.translateZProperty().set(mazeDisplayer.getTranslateZ() + delta);*/
+
+/*                double delta = 1.2;
+
+                double scale = mazeDisplayer.getScale(); // currently we only use Y, same value is used for X
+                double oldScale = scale;
+
+                if (event.getDeltaY() < 0)
+                    scale /= delta;
+                else
+                    scale *= delta;
+
+               // scale = clamp( scale, currentStage.getMinHeight(), currentStage.getMaxWidth());
+
+                double f = (scale / oldScale)-1;
+
+                double dx = (event.getSceneX() - (mazeDisplayer.getBoundsInParent().getWidth()/2 + mazeDisplayer.getBoundsInParent().getMinX()));
+                double dy = (event.getSceneY() - (mazeDisplayer.getBoundsInParent().getHeight()/2 + mazeDisplayer.getBoundsInParent().getMinY()));
+
+                mazeDisplayer.setScale( scale);
+
+                // note: pivot value must be untransformed, i. e. without scaling
+                mazeDisplayer.setPivot(f*dx, f*dy);*/
+
+
+            }
+            event.consume();
+        });
+    }
+
+    public static double clamp( double value, double min, double max) {
+
+        if( Double.compare(value, min) < 0)
+            return min;
+
+        if( Double.compare(value, max) > 0)
+            return max;
+
+        return value;
     }
     //</editor-fold>
 
@@ -119,6 +162,7 @@ public class MyViewController extends AController implements Initializable {
     }
 
 
+
     //-----------------------------------solve--------------------------//
 
     //When the button clicks the solve maze button
@@ -135,9 +179,8 @@ public class MyViewController extends AController implements Initializable {
     }
 
 
-
-    public void KeyPressed(KeyEvent keyEvent) {
-        MyViewModel.KeyPressed(keyEvent);
+    public void keyPressed(KeyEvent keyEvent) {
+        MyViewModel.keyPressed(keyEvent);
     }
 
     //------------------------------menu bar---------------------------//

@@ -2,7 +2,6 @@ package View;
 
 import Model.MyModel;
 import ViewModel.Mediation;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,16 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Observable;
-import java.util.Optional;
 
 
 public class StartWindowsController extends AController {
@@ -93,23 +88,6 @@ public class StartWindowsController extends AController {
         SetStageCloseEvent(currentStage);
         currentStage.show();
 
-    }
-
-
-    public static void SetStageCloseEvent(Stage primaryStage) {
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent windowEvent) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit?");
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
-                    // ... user chose OK
-                    // Close program
-                } else {
-                    // ... user chose CANCEL or closed the dialog
-                    windowEvent.consume();
-                }
-            }
-        });
     }
 
     @Override

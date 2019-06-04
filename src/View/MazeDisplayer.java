@@ -91,7 +91,7 @@ public class MazeDisplayer extends Canvas {
     // new maze
     public void setMaze(Maze maze) {
         this.maze = maze;
-        if(PrincePositionColumn == maze.getStartPosition().getColumnIndex() && PrincePositionRow==maze.getStartPosition().getRowIndex()){
+        if(characterPositionColumn == maze.getStartPosition().getColumnIndex() && characterPositionRow==maze.getStartPosition().getRowIndex()){
             solutionDisplayed = false;
         }
         redraw();

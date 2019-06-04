@@ -44,8 +44,8 @@ public class Mediation extends Observable implements Observer {
         return model.getMaze();
     }
 
-    public void KeyPressed(KeyEvent keyEvent) {
-        model.KeyPressed(keyEvent);
+    public void keyPressed(KeyEvent keyEvent) {
+        model.keyPressed(keyEvent);
     }
 
     public ArrayList<String> getSavedMazes() {
