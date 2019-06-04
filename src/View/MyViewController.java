@@ -1,38 +1,32 @@
 package View;
-import algorithms.mazeGenerators.Maze;
-import algorithms.mazeGenerators.MyMazeGenerator;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
+import algorithms.mazeGenerators.Maze;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
-
-import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 
-public class MyViewController extends AController {
+public class MyViewController extends AController implements Initializable {
 
     // ----------music Background-----//
     private MediaPlayer mediaplayerBackground;
@@ -41,23 +35,38 @@ public class MyViewController extends AController {
     //show the maze
     @FXML
     public MazeDisplayer mazeDisplayer;
-    @FXML
     public Menu loadMazeMenu;
+
 
 
     //A constructor that plays the music calls it when the window opens
     public MyViewController(){
-
-
         musicBackground();
     }
+
+    //<editor-fold desc="Data Binding for Maze size">
+
+    public BorderPane BorderPane;
+    public VBox VBox;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //Set Binding for Properties
+        BorderPane.prefWidthProperty().bind(getStage().widthProperty().multiply(0.9));
+        BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
+        VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
+        VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
+        mazeDisplayer.widthProperty().bind(VBox.prefWidthProperty());
+        mazeDisplayer.heightProperty().bind(VBox.prefHeightProperty());
+    }
+    //</editor-fold>
 
     public void NewMazeMouseClicked() throws IOException {
         //open a new windows -  the generate Maze
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/generateMaze.fxml"));
         Parent root2 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        Scene s = new Scene(root2,500,600);
+        Scene s = new Scene(root2,381,301);
         stage.setScene(s);
 
 
@@ -75,6 +84,7 @@ public class MyViewController extends AController {
         AController view4  = FXMLLoader.getController();
         this.addObserver(view4);
         //show
+        stage.setTitle("MAZES & DRAGONS");
         stage.show();
     }
 
@@ -96,6 +106,13 @@ public class MyViewController extends AController {
         mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //A function that draws the maze
         mazeDisplayer.setMaze(maze);
+        // thr princes get to ths end
+        if(characterPositionRow ==  maze.getGoalPosition().getRowIndex() && characterPositionColumn == maze.getGoalPosition().getColumnIndex()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Love Wins!");
+            alert.setHeaderText("You've Reached the End - Very Good");
+            alert.show();
+        }
 
         //this.characterPositionRow.set(characterPositionRow + "");
         //this.characterPositionColumn.set(characterPositionColumn + "");
