@@ -1,7 +1,6 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyEvent;
@@ -23,13 +21,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -179,7 +175,6 @@ public class MyViewController extends AController implements Initializable {
             musicSound1.setVolume(0.5);
             musicSound1.play();
         }
-
         //this.characterPositionRow.set(characterPositionRow + "");
         //this.characterPositionColumn.set(characterPositionColumn + "");
     }
@@ -314,6 +309,13 @@ public class MyViewController extends AController implements Initializable {
         } catch (Exception e) {
 
         }
+    }
+
+    //-------------------------Exit--------------------//
+
+    public void exitMaze()
+    {
+        SetStageCloseEvent(currentStage);
     }
 
 }

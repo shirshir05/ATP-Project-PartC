@@ -54,7 +54,7 @@
                <HBox.margin>
                   <Insets right="6.0" top="4.0" />
                </HBox.margin></Button>
-            <Button fx:id="menuItem4" layoutX="349.0" layoutY="10.0" mnemonicParsing="false" text="Exit">
+            <Button fx:id="menuItem4" layoutX="349.0" layoutY="10.0" mnemonicParsing="false" onAction="#exitMaze" text="Exit">
                <HBox.margin>
                   <Insets top="4.0" />
                </HBox.margin></Button>
@@ -70,7 +70,7 @@
                </VBox.margin></Label>
             <!--<Pane fx:id="pane" prefHeight="450.0" prefWidth="600.0" nodeOrientation="INHERIT">-->
                <!--<children>-->
-                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
+                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" imageFileNameEnd = "resources/Images/FinishMaze.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
                <!--</children>-->
             <!--</Pane>-->
          </children>
