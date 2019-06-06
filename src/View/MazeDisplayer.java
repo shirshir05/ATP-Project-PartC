@@ -18,8 +18,9 @@ public class MazeDisplayer extends Canvas {
     private StringProperty ImageFileNameWall = new SimpleStringProperty();
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
     private StringProperty ImageFileNamePrince = new SimpleStringProperty();
-
+    private StringProperty ImageFileNameEnd = new SimpleStringProperty();
     private StringProperty ImageFileNameSolution = new SimpleStringProperty();
+
     private Maze maze;
     private int characterPositionRow;
     private int characterPositionColumn;
@@ -32,6 +33,16 @@ public class MazeDisplayer extends Canvas {
     private ArrayList<int[]> solution;
 
 
+    public void setImageFileNameEnd(String imageFileNameEnd) {
+        this.ImageFileNameEnd.set(imageFileNameEnd);
+    }
+    public String getImageFileNameEnd() {
+        return ImageFileNameEnd.get();
+    }
+
+    public StringProperty imageFileNameEndProperty() {
+        return ImageFileNameEnd;
+    }
 
     public void setImageFileNameSolution(String imageFileNameSolution) { this.ImageFileNameSolution.set(imageFileNameSolution); }
 
@@ -117,11 +128,19 @@ public class MazeDisplayer extends Canvas {
             drawMaze(cellHeight,cellWidth,graphicsContext2D);
             if (solutionDisplayed)
                 drawSolution(cellHeight,cellWidth,graphicsContext2D);
-            drawCharacter(cellHeight,cellWidth,graphicsContext2D);
-            drawCharacterPrince(cellHeight,cellWidth,graphicsContext2D);
+            if ((characterPositionColumn==PrincePositionColumn)&&(characterPositionRow==PrincePositionRow)) {
+                //end of maze reached
+                drawEnding(cellHeight,cellWidth,graphicsContext2D);
+            }
+            else
+            {
+                drawCharacter(cellHeight, cellWidth, graphicsContext2D);
+                drawCharacterPrince(cellHeight, cellWidth, graphicsContext2D);
+            }
             //maze.print();
         }
     }
+
 
     public void displayNewSolution(ArrayList<int[]> solution) {
         if (solutionDisplayed || solution == null)//enables hiding the solution
@@ -167,7 +186,19 @@ public class MazeDisplayer extends Canvas {
     private void drawCharacterPrince(double cellHeight, double cellWidth,GraphicsContext graphicsContext2D) {
         try {
             Image characterImage = new Image(new FileInputStream(ImageFileNamePrince.get()));
-            graphicsContext2D.drawImage(characterImage,getPrincePositionColumn()* cellWidth, getPrincePositionRow() * cellHeight, cellHeight, cellHeight);
+            graphicsContext2D.drawImage(characterImage,PrincePositionColumn* cellWidth, PrincePositionRow * cellHeight, cellWidth*1.05, cellHeight*1.02);
+        } catch (FileNotFoundException e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));
+            alert.show();
+        }
+    }
+
+
+    private void drawEnding(double cellHeight, double cellWidth, GraphicsContext graphicsContext2D) {
+        try {
+            Image characterImage = new Image(new FileInputStream(ImageFileNameEnd.get()));
+            graphicsContext2D.drawImage(characterImage,PrincePositionColumn* cellWidth, PrincePositionRow * cellHeight, cellWidth*1.05, cellHeight*1.5);
         } catch (FileNotFoundException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText(String.format("Image doesn't exist: %s", e.getMessage()));

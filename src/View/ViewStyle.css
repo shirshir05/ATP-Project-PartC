@@ -30,6 +30,11 @@ MenuBar:hover{
     -fx-content-display: CENTER;
 }
 
+#Help1,#Help2,#Help3,#Help4,#Help5,#Help6,#Help7,#Help8,#Help9,#Help10,#Help11,#Help12,#Help13,#Help14,#Help15,#Help16,#Help17,#Help18,#Help19,#Help20,#Help21,#Help22,#Help23,#Help24,#Help25{
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50;
+}
+
 
 Label{
    /* -fx-font-family: "Calibri";*/

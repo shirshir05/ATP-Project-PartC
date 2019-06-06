@@ -11,7 +11,6 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
@@ -23,7 +22,6 @@ import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -155,6 +153,7 @@ public class MyModel extends Observable implements IModel {
     @Override
     public ArrayList<int[]> solveMaze() {
         if (maze == null) return null;
+        //maze.setStartPosition(characterPositionRow,characterPositionColumn);
         ArrayList<int[]>solution = new ArrayList<>();
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
@@ -259,7 +258,6 @@ public class MyModel extends Observable implements IModel {
     public void keyPressed(KeyEvent keyEvent) {
         if(maze==null) return;
         int[][] mazeArray = maze.getM_maze();
-        System.out.println(keyEvent.getCode());
         if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() ==KeyCode.DIGIT8 || keyEvent.getCode() == KeyCode.NUMPAD8) {//-1 , 0
             if(characterPositionRow-1 > maze.getNumberOfRows()-1 || characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow-1 <0 ||characterPositionColumn<0)  {
                 musicFail();

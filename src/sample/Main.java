@@ -18,7 +18,6 @@ public class Main extends Application {
         Scene scene = new Scene(root, 590, 402);
         scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
         primaryStage.setScene(scene);
-        StartWindowsController.SetStageCloseEvent(primaryStage);
         StartWindowsController.currentStage = primaryStage;
         primaryStage.show();
     }

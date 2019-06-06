@@ -18,38 +18,30 @@
             <center>
                 <VBox prefHeight="1010.0" prefWidth="682.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label prefHeight="21.0" prefWidth="394.0" text="Option button - contains a Properties file containing the settings of the application." />
-                        <Label fx:id="opening1" alignment="CENTER" contentDisplay="CENTER" prefWidth="590.0" text="Welcome to the game!">
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label fx:id="opening2" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="60.0" prefWidth="590.0" text="The purpose of this screen is to help you understand the game.">
-                            <VBox.margin>
-                                <Insets bottom="20.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label prefHeight="21.0" prefWidth="607.0" text="Your mission: save the prince from the cruel dragon." />
-                        <Label prefHeight="18.0" prefWidth="589.0" text="Your character is represented by a princess." />
-                        <Label text="The prince (target) is represented by the figure of a prince and a dragon." />
-                        <Label text="You can move by keyboard keys:" />
-                        <Label text="Key number 1 - lower diagonal left." />
-                        <Label fx:id="opening3" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="60.0" text="Number key 2 or DOWN - Move down." BorderPane.alignment="TOP_LEFT" />
-                        <Label text="Number key 3 - lower diagonal to the right." />
-                        <Label prefHeight="21.0" prefWidth="495.0" text="Key number 4 or LEFT - Move left." />
-                        <Label prefHeight="39.0" prefWidth="678.0" text="Key number 6 or RIGHT key - move to the right." />
-                        <Label text="Key number 7 - Upper diagonal left." />
-                        <Label text="Key number 8 or UP key - scroll up." />
-                        <Label text="Key number 9 - Upper diagonal to the right." />
-                        <Label text="The SHOW PATH TO PRINCE button will show you the solution to the Prince." />
-                        <Label text="MUSIC ON / OFF button - A button that turns the music on or off." />
-                        <Label text="The File button contains three different options:" />
-                        <Label text="1. NEM MAZE - Creates a new maze according to sizes as defined." />
-                        <Label prefHeight="21.0" prefWidth="590.0" text="2. Save maze - saves the existing maze by timestamp." />
-                        <Label prefHeight="21.0" prefWidth="540.0" text="3. Load maze - You can load an old maze that you saved" />
-                        <Label prefHeight="21.0" prefWidth="387.0" text="New MAZE button - creates a new maze, note that you can produce a maze at least size 4." />
-                        <Label prefHeight="21.0" prefWidth="514.0" text="Exit button - Exit the game.About button - Explanation of the application." />
-                        <Label prefHeight="21.0" prefWidth="600.0" text="We're here to help you get through your mission - good luck!" />
+                        <Label fx:id="Help1" prefWidth="682.0" text="Option button - contains a Properties file containing the settings of the application." />
+                        <Label fx:id="Help2" prefWidth="682.0" text="Welcome to the game!"/>
+                        <Label fx:id="Help3" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" layoutX="10.0" layoutY="60.0" text="The purpose of this screen is to help you understand the game."/>
+                        <Label fx:id="Help4" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Your mission: save the prince from the cruel dragon." />
+                        <Label fx:id="Help6" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Your character is represented by a princess." />
+                        <Label fx:id="Help7" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="The prince (target) is represented by the figure of a prince and a dragon." />
+                        <Label fx:id="Help8" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="You can move by keyboard keys:" />
+                        <Label fx:id="Help9" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 1 - lower diagonal left." />
+                        <Label fx:id="Help10" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Number key 2 or DOWN - Move down." />
+                        <Label fx:id="Help11" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Number key 3 - lower diagonal to the right." />
+                        <Label fx:id="Help12" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 4 or LEFT - Move left." />
+                        <Label fx:id="Help13" prefHeight="39.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 6 or RIGHT key - move to the right." />
+                        <Label fx:id="Help14" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 7 - Upper diagonal left." />
+                        <Label fx:id="Help15" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 8 or UP key - scroll up." />
+                        <Label fx:id="Help16" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Key number 9 - Upper diagonal to the right." />
+                        <Label fx:id="Help17" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="The SHOW PATH TO PRINCE button will show you the solution to the Prince." />
+                        <Label fx:id="Help18" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="MUSIC ON / OFF button - A button that turns the music on or off." />
+                        <Label fx:id="Help19" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="The File button contains three different options:" />
+                        <Label fx:id="Help20" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="1. NEM MAZE - Creates a new maze according to sizes as defined." />
+                        <Label fx:id="Help21" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="2. Save maze - saves the existing maze by timestamp." />
+                        <Label fx:id="Help22" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="3. Load maze - You can load an old maze that you saved" />
+                        <Label fx:id="Help23" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="New MAZE button - creates a new maze, note that you can produce a maze at least size 4." />
+                        <Label fx:id="Help24" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="Exit button - Exit the game.About button - Explanation of the application." />
+                        <Label fx:id="Help25" prefHeight="21.0" prefWidth="682.0" alignment="CENTER" contentDisplay="LEFT" text="We're here to help you get through your mission - good luck!" />
                     </children>
                     <padding>
                         <Insets top="50.0" />

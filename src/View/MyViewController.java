@@ -13,6 +13,9 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -24,7 +27,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -106,6 +108,27 @@ public class MyViewController extends AController implements Initializable {
         });
     }
 
+
+    private void initi(){
+
+        Rotate x;
+        Rotate Y;
+
+    }
+
+
+
+    public static double clamp( double value, double min, double max) {
+
+        if( Double.compare(value, min) < 0)
+            return min;
+
+        if( Double.compare(value, max) > 0)
+            return max;
+
+        return value;
+    }
+    //</editor-fold>
 
     public void NewMazeMouseClicked() throws IOException {
         //open a new windows -  the generate Maze
@@ -297,6 +320,28 @@ public class MyViewController extends AController implements Initializable {
             stage.show();
         } catch (Exception e) {
 
+        }
+    }
+
+    //-------------------------Exit--------------------//
+
+    public void exitMaze()
+    {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            // ... user chose OK
+            // Close program
+            if(MyViewModel !=null){
+                MyViewModel.StopServer();
+
+            }
+            //currentStage.getS
+            currentStage.close();
+            Platform.exit();
+            int t =Thread.activeCount();
+            System.out.println(t);
+            //System.out.println(0);
         }
     }
 

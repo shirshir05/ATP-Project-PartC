@@ -6,7 +6,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Control;
-import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -38,11 +37,6 @@ public abstract class AController extends Observable implements IView, Observer 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent windowEvent) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit?");
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(
-                        getClass().getResource("ViewStyle.css").toExternalForm());
-
-
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
                     // ... user chose OK
