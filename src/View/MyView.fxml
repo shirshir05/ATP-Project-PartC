@@ -41,7 +41,7 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Options">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Properties" />
+                        <MenuItem mnemonicParsing="false" onAction="#openProperties" text="Properties" />
                      </items>
                   </Menu>
                </menus>
@@ -70,7 +70,7 @@
                </VBox.margin></Label>
             <!--<Pane fx:id="pane" prefHeight="450.0" prefWidth="600.0" nodeOrientation="INHERIT">-->
                <!--<children>-->
-                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" imageFileNameEnd = "resources/Images/FinishMaze.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
+                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" imageFileNameEnd="resources/Images/FinishMaze.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
                <!--</children>-->
             <!--</Pane>-->
          </children>
@@ -86,12 +86,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <Button mnemonicParsing="false" fx:id="solve" onAction="#solve" disable="true" prefHeight="25.0" prefWidth="165.0" text="SHOW PATH TO PRINCE">
+             <Button fx:id="solve" mnemonicParsing="false" onAction="#solve" prefHeight="25.0" prefWidth="165.0" text="SHOW PATH TO PRINCE">
                <GridPane.margin>
                   <Insets bottom="7.0" left="7.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="25.0" prefWidth="165.0" text="MUSIC ON/OFF" GridPane.columnIndex="1">
+            <Button fx:id="music" mnemonicParsing="false" onAction="#StopMusicBackground" prefHeight="25.0" prefWidth="165.0" text="MUSIC ON/OFF" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="7.0" right="7.0" />
                </GridPane.margin>

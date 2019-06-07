@@ -1,26 +1,19 @@
 package View;
 
 import Model.MyModel;
-import ViewModel.Mediation;
-import javafx.event.EventHandler;
+import ViewModel.MyViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Observable;
-import java.util.Optional;
 
 
 public class StartWindowsController extends AController {
@@ -46,7 +39,7 @@ public class StartWindowsController extends AController {
     public void startGame(javafx.event.ActionEvent actionEvent) throws Exception{
         //definition
         MyModel model = new MyModel();
-        MyViewModel = new Mediation(model);
+        MyViewModel = new MyViewModel(model);
         //start the music
         MyViewController MyViewController = new MyViewController();
         //start server

@@ -153,7 +153,7 @@ public class MyModel extends Observable implements IModel {
     @Override
     public ArrayList<int[]> solveMaze() {
         if (maze == null) return null;
-        //maze.setStartPosition(characterPositionRow,characterPositionColumn);
+        maze.setStartPosition(characterPositionRow,characterPositionColumn);
         ArrayList<int[]>solution = new ArrayList<>();
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {

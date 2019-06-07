@@ -7,16 +7,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AboutController">
+<AnchorPane prefHeight="400.0" stylesheets="@ViewStyle.css" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
+
     <children>
         <BorderPane prefHeight="402.0" prefWidth="590.0">
             <center>
                 <VBox prefHeight="1010.0" prefWidth="682.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="Help1" prefWidth="682.0" text="Version: 1.0" />
-                        <Label fx:id="Help2" prefWidth="682.0" text="Programmers: Ortal parpara &amp; Shir Cohen" />
-                        <Label fx:id="Help3" contentDisplay="LEFT" layoutX="10.0" layoutY="60.0" prefHeight="17.0" prefWidth="588.0" text="students in Software and Information Systems Engineering second year" />
-                        <Label fx:id="Help4" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" text="Final project in advanced topics in programming" />
+                        <Label fx:id="Help1" prefWidth="682.0" text="Algorithm = MazeGeneratorsm  base on " />
+                        <Label fx:id="Help2" prefWidth="682.0" text="https://en.wikipedia.org/wiki/Maze_generation_algorith  Randomized Prim's algorithm" />
+                        <Label fx:id="Help3" contentDisplay="LEFT" layoutX="10.0" layoutY="60.0" prefHeight="17.0" prefWidth="588.0" text="Algorithm = BestFirstSearch bas on" />
+                        <Label fx:id="Help4" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" text="https://en.wikipedia.org/wiki/Best-first_search" />
                         <Label fx:id="Help6" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
                         <Label fx:id="Help7" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
                         <Label fx:id="Help8" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
@@ -44,7 +45,7 @@
                 </VBox>
             </center>
             <top>
-                <Label text="about" BorderPane.alignment="CENTER">
+                <Label text="Properties" BorderPane.alignment="CENTER">
                     <BorderPane.margin>
                         <Insets top="30.0" />
                     </BorderPane.margin>

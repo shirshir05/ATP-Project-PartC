@@ -1,11 +1,9 @@
 package View;
 
-import ViewModel.Mediation;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Control;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -18,11 +16,11 @@ public abstract class AController extends Observable implements IView, Observer 
     public static Stage currentStage;
 
     //Defines the program's moderator
-    protected static Mediation MyViewModel ;
+    protected static ViewModel.MyViewModel MyViewModel ;
 
 
     // A function called the main
-    public static void setMyViewModel(Mediation viewModel)
+    public static void setMyViewModel(ViewModel.MyViewModel viewModel)
     {
         MyViewModel = viewModel;
     }
@@ -41,21 +39,23 @@ public abstract class AController extends Observable implements IView, Observer 
                 if (result.get() == ButtonType.OK){
                     // ... user chose OK
                     // Close program
-                    if(MyViewModel !=null){
-                        MyViewModel.StopServer();
-
-                    }
-                    //currentStage.getS
-                    primaryStage.close();
-                    Platform.exit();
-                    int t =Thread.activeCount();
-                    System.out.println(t);
-                    //System.out.println(0);
+                    freeProgram();
                 } else {
                     // ... user chose CANCEL or closed the dialog
                     windowEvent.consume();
                 }
             }
         });
+    }
+
+    public static void freeProgram(){
+
+        if(MyViewModel !=null){
+            MyViewModel.StopServer();
+
+        }
+        //currentStage.getS
+        currentStage.close();
+        Platform.exit();
     }
 }

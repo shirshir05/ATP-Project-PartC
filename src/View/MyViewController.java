@@ -42,6 +42,8 @@ public class MyViewController extends AController implements Initializable {
     // ----------music Background-----//
     private MediaPlayer mediaplayerBackground;
     private boolean flagToMusicBackground = false;
+    public javafx.scene.control.Button music;
+
 
     //show the maze
     @FXML
@@ -276,15 +278,19 @@ public class MyViewController extends AController implements Initializable {
         mediaplayerBackground.setVolume(0.1);
         mediaplayerBackground.play();
         flagToMusicBackground = true;
+        //music.setDisable(false);
     }
 
     public void StopMusicBackground() {
         if(flagToMusicBackground == false){
-            musicBackground();
+            mediaplayerBackground.setVolume(0.1);
+            flagToMusicBackground = true;
+
         }
        else{
-            mediaplayerBackground.stop();
             flagToMusicBackground =  false;
+            mediaplayerBackground.setVolume(0);
+
 
         }
 
@@ -295,6 +301,20 @@ public class MyViewController extends AController implements Initializable {
     public void openHelp() throws IOException {
 
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindows.fxml"));
+        Parent root3 = (Parent)FXMLLoader.load();
+        Stage stage = new Stage();
+        Scene s = new Scene(root3,900,900);
+        stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+
+        stage.setScene(s);
+        stage.show();
+    }
+
+    //---------------------------Properties------------------------//
+
+    public void openProperties() throws IOException {
+
+        FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/Properties.fxml"));
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
         Scene s = new Scene(root3,900,900);
@@ -332,16 +352,8 @@ public class MyViewController extends AController implements Initializable {
         if (result.get() == ButtonType.OK){
             // ... user chose OK
             // Close program
-            if(MyViewModel !=null){
-                MyViewModel.StopServer();
+            AController.freeProgram();
 
-            }
-            //currentStage.getS
-            currentStage.close();
-            Platform.exit();
-            int t =Thread.activeCount();
-            System.out.println(t);
-            //System.out.println(0);
         }
     }
 
