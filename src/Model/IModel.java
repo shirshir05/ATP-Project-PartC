@@ -2,6 +2,7 @@ package Model;
 
 import algorithms.mazeGenerators.Maze;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
@@ -19,4 +20,6 @@ public interface IModel {
     ArrayList<String> getListOfSavedFiles();
     void createFileFromDB(String fileName);
     void saveMaze();
+
+    void keyPressedMouse(MouseEvent e);
 }

@@ -13,6 +13,7 @@ import algorithms.search.MazeState;
 import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -248,6 +249,15 @@ public class MyModel extends Observable implements IModel {
             setChanged();
             notifyObservers();
         }
+    }
+
+
+    public void keyPressedMouse(MouseEvent E){
+        if(maze==null) return;
+        int[][] mazeArray = maze.getM_maze();
+        double x = E.getSceneX();
+        double y = E.getSceneY();
+
     }
 
 

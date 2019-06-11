@@ -53,12 +53,7 @@ public class MyViewController extends AController implements Initializable {
 
 
     //A constructor that plays the music calls it when the window opens
-    public MyViewController(){
-        if(flagToMusicBackground == false){
-            musicBackground();
 
-        }
-    }
 
     //<editor-fold desc="Data Binding for Maze size">
 
@@ -69,6 +64,7 @@ public class MyViewController extends AController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Set Binding for Properties
+        musicBackground();
         BorderPane.prefWidthProperty().bind(getStage().widthProperty().multiply(0.9));
         BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
         VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
@@ -77,37 +73,7 @@ public class MyViewController extends AController implements Initializable {
         //pane.prefHeightProperty().bind(VBox.prefHeightProperty());
         mazeDisplayer.widthProperty().bind(/*pane*/BorderPane.prefWidthProperty());
         mazeDisplayer.heightProperty().bind(/*pane*/BorderPane.prefHeightProperty());
-        currentStage.addEventHandler(ScrollEvent.SCROLL,event ->  {
-            if(event.isControlDown()) {
-                /*double delta = event.getDeltaY();
-                mazeDisplayer.translateZProperty().set(mazeDisplayer.getTranslateZ() + delta);*/
 
-/*                double delta = 1.2;
-
-                double scale = mazeDisplayer.getScale(); // currently we only use Y, same value is used for X
-                double oldScale = scale;
-
-                if (event.getDeltaY() < 0)
-                    scale /= delta;
-                else
-                    scale *= delta;
-
-               // scale = clamp( scale, currentStage.getMinHeight(), currentStage.getMaxWidth());
-
-                double f = (scale / oldScale)-1;
-
-                double dx = (event.getSceneX() - (mazeDisplayer.getBoundsInParent().getWidth()/2 + mazeDisplayer.getBoundsInParent().getMinX()));
-                double dy = (event.getSceneY() - (mazeDisplayer.getBoundsInParent().getHeight()/2 + mazeDisplayer.getBoundsInParent().getMinY()));
-
-                mazeDisplayer.setScale( scale);
-
-                // note: pivot value must be untransformed, i. e. without scaling
-                mazeDisplayer.setPivot(f*dx, f*dy);*/
-
-
-            }
-            event.consume();
-        });
     }
 
 
@@ -119,6 +85,14 @@ public class MyViewController extends AController implements Initializable {
     }
 
 
+    public  void setOnScroll(){
+        currentStage.getScene().setOnScroll(new EventHandler<ScrollEvent>() {
+            @Override
+            public void handle(ScrollEvent event) {
+                zoomScroll(event);
+            }
+        });
+    }
 
     public static double clamp( double value, double min, double max) {
 
@@ -171,12 +145,19 @@ public class MyViewController extends AController implements Initializable {
 
 
     public void displayMaze(Maze maze) {
+
         //Update location of characters
         int characterPositionRow = MyViewModel.getCharacterPositionRow();
         int characterPositionColumn = MyViewModel.getCharacterPositionColumn();
         mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //A function that draws the maze
         mazeDisplayer.setMaze(maze);
+        currentStage.getScene().setOnScroll(new EventHandler<ScrollEvent>() {
+            @Override
+            public void handle(ScrollEvent event) {
+                zoomScroll(event);
+            }
+        });
         // thr princes get to ths end
         if(characterPositionRow ==  maze.getGoalPosition().getRowIndex() && characterPositionColumn == maze.getGoalPosition().getColumnIndex()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -275,24 +256,26 @@ public class MyViewController extends AController implements Initializable {
     {
         Media musicFile = new Media(getClass().getResource("/Audio/Relaxing Video Game Music for 3 Hours (Vol. 1) (mp3cut.net).m4a").toString());
         mediaplayerBackground = new MediaPlayer(musicFile);
-        mediaplayerBackground.setVolume(0.1);
         mediaplayerBackground.play();
+        mediaplayerBackground.setVolume(0.1);
         flagToMusicBackground = true;
         //music.setDisable(false);
     }
 
     public void StopMusicBackground() {
+
         if(flagToMusicBackground == false){
-            mediaplayerBackground.setVolume(0.1);
+            mediaplayerBackground.play();
             flagToMusicBackground = true;
 
         }
        else{
             flagToMusicBackground =  false;
-            mediaplayerBackground.setVolume(0);
+            mediaplayerBackground.stop();
 
 
         }
+
 
     }
 
@@ -333,12 +316,35 @@ public class MyViewController extends AController implements Initializable {
             stage.setTitle("About");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("AboutWindows.fxml").openStream());
-            Scene scene = new Scene(root, 900, 900);
+            Scene scene = new Scene(root, 546, 402);
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
             stage.show();
         } catch (Exception e) {
+
+        }
+    }
+
+
+    public void moveWitheMouse(MouseEvent eventHandler){
+        MyViewModel.keyPressedMouse(eventHandler);
+
+    }
+    //-------------------------ZOOM--------------------//
+
+    public void zoomScroll(ScrollEvent event){
+        if(event.isControlDown()){
+            double change = event.getDeltaY();
+            double zoomConst = 1.03;
+            if(change < 0){
+                zoomConst = 0.97;
+            }
+
+            mazeDisplayer.setScaleY(mazeDisplayer.getScaleY()*zoomConst);
+            mazeDisplayer.setScaleX(mazeDisplayer.getScaleX()*zoomConst);
+            event.consume();
+
 
         }
     }
