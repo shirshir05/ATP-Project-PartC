@@ -42,3 +42,20 @@
 2019.06.12 17:57:32.683 INFO  Model.MyModel - Maze Generating server started
 2019.06.12 17:57:32.688 INFO  Model.MyModel - Solve Maze server started
 2019.06.12 17:57:35.875 INFO  Model.MyModel - servers stopped
+2019.06.12 19:17:26.550 INFO  Model.MyModel - Maze Generating server started
+2019.06.12 19:17:26.552 INFO  Model.MyModel - Solve Maze server started
+2019.06.12 19:17:35.182 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:18:04.867 INFO  Model.MyModel - Maze Generating server started
+2019.06.12 19:18:04.869 INFO  Model.MyModel - Solve Maze server started
+2019.06.12 19:18:19.900 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:21:54.779 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:22:16.170 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:23:23.760 INFO  Model.MyModel - servers stopped
+2019.06.12 19:23:36.064 INFO  Model.MyModel - Maze Generating server started
+2019.06.12 19:23:36.066 INFO  Model.MyModel - Solve Maze server started
+2019.06.12 19:23:43.956 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:24:14.652 INFO  Model.MyModel - servers stopped
+2019.06.12 19:25:43.891 INFO  Model.MyModel - Maze Generating server started
+2019.06.12 19:25:43.894 INFO  Model.MyModel - Solve Maze server started
+2019.06.12 19:25:58.087 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
+2019.06.12 19:26:32.691 INFO  Model.MyModel - servers stopped
