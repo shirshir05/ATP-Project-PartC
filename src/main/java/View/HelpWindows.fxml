@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="548.0" prefWidth="570.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HelpWindowsController">
     <children>
-          <VBox prefHeight="543.0" prefWidth="570.0">
+          <VBox prefHeight="609.0" prefWidth="570.0">
               <children>
             <Label fx:id="help5" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="570.0" text="Welcome to the game!">
                <padding>
@@ -51,12 +51,12 @@
                   <Insets left="16.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="help14" prefHeight="21.0" prefWidth="559.0" text="4 or LEFT arrow - left">
+            <Label fx:id="help14" prefWidth="559.0" text="4 or LEFT arrow - left">
                <VBox.margin>
                   <Insets left="16.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="help15" prefHeight="39.0" prefWidth="559.0" text="6 or RIGHT arrow - right">
+            <Label fx:id="help15" prefWidth="559.0" text="6 or RIGHT arrow - right">
                <VBox.margin>
                   <Insets left="16.0" />
                </VBox.margin>
@@ -116,7 +116,7 @@
                   <Insets bottom="3.0" />
                </padding>
             </Label>
-            <Label fx:id="help22" prefWidth="559.0" text="1. NEM MAZE - Creates a new maze according to sizes as defined.">
+            <Label fx:id="help22" prefWidth="559.0" text="1. New Maze - creates a new maze according to sizes as defined.">
                <VBox.margin>
                   <Insets left="16.0" />
                </VBox.margin>
@@ -134,13 +134,13 @@
             </Label>
             <Label fx:id="help24" prefHeight="21.0" prefWidth="559.0" text="3. Load maze - loads a maze from the saved mazes.">
                <VBox.margin>
-                  <Insets left="16.0" />
+                  <Insets bottom="5.0" left="16.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="3.0" left="7.0" />
                </padding>
             </Label>
-            <Label fx:id="help25" prefHeight="21.0" prefWidth="559.0" text="New Maze button - creates a new maze, note that you can produce a maze at least size 4.">
+            <Label fx:id="help25" prefHeight="21.0" prefWidth="559.0" text="New Maze button - creates a new maze according to sizes as defined.">
                <VBox.margin>
                   <Insets left="16.0" />
                </VBox.margin>
@@ -148,7 +148,23 @@
                   <Insets bottom="3.0" />
                </padding>
             </Label>
-            <Label fx:id="help26" prefHeight="21.0" prefWidth="559.0" text="Exit button - Exit the game.About button - Explanation of the application.">
+            <Label fx:id="help2" layoutX="26.0" layoutY="499.0" prefHeight="21.0" prefWidth="559.0" text="If maze sizes inserted do not match minimum requirements, a maze sized 10X10 will be created">
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help1" layoutX="26.0" layoutY="499.0" prefHeight="21.0" prefWidth="559.0" text="About button - Explanation of the application.">
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="3.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help26" prefHeight="21.0" prefWidth="559.0" text="Exit button - Exit the game.">
                <VBox.margin>
                   <Insets bottom="3.0" left="16.0" />
                </VBox.margin>

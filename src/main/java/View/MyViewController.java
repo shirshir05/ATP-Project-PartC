@@ -281,7 +281,7 @@ public class MyViewController extends AController implements Initializable {
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Help");
-        Scene s = new Scene(root3,570,543);
+        Scene s = new Scene(root3,570,609);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -296,7 +296,7 @@ public class MyViewController extends AController implements Initializable {
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Properties");
-        Scene s = new Scene(root3,546,402);
+        Scene s = new Scene(root3,464,319);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -312,7 +312,7 @@ public class MyViewController extends AController implements Initializable {
             stage.setTitle("About");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("AboutWindows.fxml").openStream());
-            Scene scene = new Scene(root, 546, 402);
+            Scene scene = new Scene(root, 495, 333);
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes

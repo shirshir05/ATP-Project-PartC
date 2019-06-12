@@ -36,7 +36,13 @@ MenuBar:hover{
     -fx-start-margin: 15;
 }
 
-#help4,#help6,#help7,#help9,#help10,#help12,#help13,#help14,#help15,#help16,#help17,#help18,#help19,#help20,#help21,#help22,#help23,#help24,#help25,#help26{
+#Help21{
+    -fx-font-size: 22px;
+    -fx-text-fill: #FFFFF;
+    -fx-start-margin: 15;
+}
+
+#help1,#help2,#help4,#help6,#help7,#help9,#help10,#help12,#help13,#help14,#help15,#help16,#help17,#help18,#help19,#help20,#help21,#help22,#help23,#help24,#help25,#help26{
     -fx-font-size: 12px;
     -fx-text-fill: #2C3E50;
     -fx-start-margin: 15;
