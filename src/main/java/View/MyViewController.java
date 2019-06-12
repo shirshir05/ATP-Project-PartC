@@ -1,22 +1,17 @@
 package View;
 
 import algorithms.mazeGenerators.Maze;
-import com.sun.deploy.uitoolkit.DragContext;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -28,7 +23,6 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -286,7 +280,8 @@ public class MyViewController extends AController implements Initializable {
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/HelpWindows.fxml"));
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        Scene s = new Scene(root3,900,900);
+        stage.setTitle("Help");
+        Scene s = new Scene(root3,570,609);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -300,7 +295,8 @@ public class MyViewController extends AController implements Initializable {
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/Properties.fxml"));
         Parent root3 = (Parent)FXMLLoader.load();
         Stage stage = new Stage();
-        Scene s = new Scene(root3,900,900);
+        stage.setTitle("Properties");
+        Scene s = new Scene(root3,464,319);
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -316,7 +312,7 @@ public class MyViewController extends AController implements Initializable {
             stage.setTitle("About");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("AboutWindows.fxml").openStream());
-            Scene scene = new Scene(root, 546, 402);
+            Scene scene = new Scene(root, 495, 333);
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes

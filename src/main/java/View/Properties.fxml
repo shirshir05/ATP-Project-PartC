@@ -3,58 +3,48 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" stylesheets="@ViewStyle.css" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
+<AnchorPane prefHeight="319.0" prefWidth="353.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
 
     <children>
-        <BorderPane prefHeight="402.0" prefWidth="590.0">
-            <center>
-                <VBox prefHeight="1010.0" prefWidth="682.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Label fx:id="Help1" prefWidth="682.0" text="Algorithm = MazeGeneratorsm  base on " />
-                        <Label fx:id="Help2" prefWidth="682.0" text="https://en.wikipedia.org/wiki/Maze_generation_algorith  Randomized Prim's algorithm" />
-                        <Label fx:id="Help3" contentDisplay="LEFT" layoutX="10.0" layoutY="60.0" prefHeight="17.0" prefWidth="588.0" text="Algorithm = BestFirstSearch bas on" />
-                        <Label fx:id="Help4" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" text="https://en.wikipedia.org/wiki/Best-first_search" />
-                        <Label fx:id="Help6" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help7" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help8" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help9" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help10" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help11" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help12" alignment="CENTER" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" />
-                        <Label fx:id="Help13" alignment="CENTER" contentDisplay="LEFT" prefHeight="39.0" prefWidth="682.0" />
-                        <Label fx:id="Help14" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help15" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help16" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help17" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help18" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help19" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help20" alignment="CENTER" contentDisplay="LEFT" prefWidth="682.0" />
-                        <Label fx:id="Help21" alignment="CENTER" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" />
-                        <Label fx:id="Help22" alignment="CENTER" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" />
-                        <Label fx:id="Help23" alignment="CENTER" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" />
-                        <Label fx:id="Help24" alignment="CENTER" contentDisplay="LEFT" prefHeight="21.0" prefWidth="682.0" />
-                        <Label fx:id="Help25" alignment="CENTER" contentDisplay="LEFT" prefHeight="0.0" prefWidth="590.0" />
-                    </children>
-                    <padding>
-                        <Insets top="50.0" />
-                    </padding>
-                </VBox>
-            </center>
-            <top>
-                <Label text="Properties" BorderPane.alignment="CENTER">
-                    <BorderPane.margin>
-                        <Insets top="30.0" />
-                    </BorderPane.margin>
-                    <font>
-                        <Font size="25.0" />
-                    </font>
-                </Label>
-            </top>
-        </BorderPane>
+          <Label alignment="CENTER" prefHeight="54.0" prefWidth="464.0" text="PROPERTIES" AnchorPane.topAnchor="15.0">
+              <font>
+                  <Font size="25.0" />
+              </font>
+         <padding>
+            <Insets bottom="15.0" />
+         </padding>
+          </Label>
+          <VBox prefHeight="319.0" prefWidth="464.0">
+              <children>
+                  <Label fx:id="Help23" alignment="CENTER" contentDisplay="LEFT" prefHeight="39.0" prefWidth="517.0" />
+                  <Label fx:id="Help7" contentDisplay="LEFT" prefHeight="42.0" prefWidth="385.0" text="Maze generation algorithm:">
+                      <VBox.margin>
+                          <Insets left="16.0" />
+                      </VBox.margin></Label>
+            <Label fx:id="Help6" contentDisplay="LEFT" layoutX="26.0" layoutY="99.0" prefHeight="69.0" prefWidth="393.0" text="Randomized Prim's algorithm">
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+                  <Label fx:id="Help8" contentDisplay="LEFT" prefHeight="42.0" prefWidth="340.0" text="Solving maze algorithm:">
+                      <VBox.margin>
+                          <Insets left="16.0" />
+                      </VBox.margin></Label>
+            <Label fx:id="Help5" contentDisplay="LEFT" layoutX="26.0" layoutY="157.0" prefHeight="39.0" prefWidth="365.0" text="Best First search">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin></Label>
+              </children>
+              <padding>
+                  <Insets top="50.0" />
+              </padding>
+          </VBox>
     </children>
 
 </AnchorPane>
