@@ -30,9 +30,17 @@ MenuBar:hover{
     -fx-content-display: CENTER;
 }
 
-#Help1,#Help2,#Help3,#Help4,#Help5,#Help6,#Help7,#Help8,#Help9,#Help10,#Help11,#Help12,#Help13,#Help14,#Help15,#Help16,#Help17,#Help18,#Help19,#Help20,#Help21,#Help22,#Help23,#Help24,#Help25{
+#Help1,#Help2,#Help3,#Help4,#Help5,#Help6,#Help7,#Help8{
+    -fx-font-size: 18px;
+    -fx-text-fill: #FFFFF;
+    -fx-start-margin: 15;
+}
+
+#head,#help4,#help5,#help6,#help7,#help8,#help9,#help10,#help11,#help12,#help13,#help14,#help15,#help16,#help17,#help18,#help19,#help20,#help21,#help22,#help23,#help24,#help25,#help26,#help27{
     -fx-font-size: 12px;
     -fx-text-fill: #2C3E50;
+    -fx-start-margin: 15;
+
 }
 
 

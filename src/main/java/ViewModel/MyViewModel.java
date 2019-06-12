@@ -4,6 +4,7 @@ package ViewModel;
 import Model.IModel;
 import algorithms.mazeGenerators.Maze;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -40,6 +41,10 @@ public class MyViewModel extends Observable implements Observer {
         }
     }
 
+    public void keyPressedMouse(MouseEvent E){
+        model.keyPressedMouse(E);
+
+    }
     public Maze getMaze() {
         return model.getMaze();
     }

@@ -2,6 +2,7 @@ package View;
 
 import Model.MyModel;
 import ViewModel.MyViewModel;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.ScrollEvent;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -50,9 +52,14 @@ public class StartWindowsController extends AController {
         currentStage.close();
         currentStage = new Stage();
         FXMLLoader FXMLLoader  = new FXMLLoader(getClass().getResource("../View/MyView.fxml"));
+
         Parent root2 = (Parent)FXMLLoader.load();
-        currentStage.setScene(new Scene(root2, 700, 600));
+
+         Scene s= new Scene(root2, 700, 600);
+        currentStage.setScene(s);
         SetStageCloseEvent(currentStage);
+        MyViewController.setOnScroll();
+
 
         //definition model and MyViewModel Observer
         model.addObserver(MyViewModel);
