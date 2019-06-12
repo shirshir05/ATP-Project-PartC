@@ -17,6 +17,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -44,8 +49,10 @@ public class MyModel extends Observable implements IModel {
     private final String NAME_FILE = "NAMEFILE.txt";
     private HashMap<String ,Integer> sizes = new HashMap<>();//key = nameOfFile, value = sizeOfByteArray
 
+    private static final Logger LOG = LogManager.getLogger();
 
     public MyModel() {
+
         //Raise the servers
          mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
          solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
@@ -71,9 +78,20 @@ public class MyModel extends Observable implements IModel {
         }
     }
 
+    public void writeToLogInfo(String message) {
+        Configurator.setRootLevel(Level.INFO);//configure log
+        LOG.info(message);
+    }
+
+    public void writeToLogError(String message) {
+        LOG.error(message);
+    }
+
     public void startServers() {
         mazeGeneratingServer.start();
+        writeToLogInfo("Maze Generating server started");
         solveSearchProblemServer.start();
+        writeToLogInfo("Solve Maze server started");
     }
 
     public void stopServers() {
@@ -86,6 +104,7 @@ public class MyModel extends Observable implements IModel {
         }
         mazeGeneratingServer.stop();
         solveSearchProblemServer.stop();
+        writeToLogInfo("servers stopped");
     }
 
     @Override
@@ -131,6 +150,7 @@ public class MyModel extends Observable implements IModel {
                     }
                 }
             });
+            writeToLogInfo("client start " + InetAddress.getLocalHost() + " and call to port " + 5400);
             client.communicateWithServer();
         } catch (UnknownHostException e) {
             e.printStackTrace();

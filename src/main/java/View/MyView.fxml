@@ -26,7 +26,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#saveMaze" text="Save maze" />
                         <Menu fx:id="loadMazeMenu" mnemonicParsing="false" onShowing="#showSavedMazes" text="Load maze">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="test" />
+                            <MenuItem mnemonicParsing="false" text="PrivateLogger" />
                           </items>
                         </Menu>
                     </items>
