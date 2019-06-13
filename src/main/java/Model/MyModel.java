@@ -11,6 +11,7 @@ import algorithms.mazeGenerators.Maze;
 import algorithms.search.AState;
 import algorithms.search.MazeState;
 import algorithms.search.Solution;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -271,14 +272,76 @@ public class MyModel extends Observable implements IModel {
         }
     }
 
-
-    public void keyPressedMouse(MouseEvent E){
+/*
+    public void keyPressedMouse(DragEvent E, double Height, double Width){
         if(maze==null) return;
         int[][] mazeArray = maze.getM_maze();
-        double x = E.getSceneX();
-        double y = E.getSceneY();
+        double x = E.getSceneX();//*0.9;
+        double y = E.getSceneY();//*0.7;
+        double cellWidth = Width/mazeArray[0].length;
+        double cellHeight = Height/mazeArray.length;
+        int CurentX =(int) (x/cellWidth);
+        int CurentY =(int)(y/cellHeight);
+        if(CurentX > characterPositionColumn +1){
+            if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn+1 > maze.getNumberOfColumns()-1 || characterPositionRow < 0 ||characterPositionColumn+1 < 0 )  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow][characterPositionColumn+1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow;
+                characterPositionColumn = characterPositionColumn + 1;
+            }
+        }
+        else if(CurentX < characterPositionColumn -1){
+            if(characterPositionRow > maze.getNumberOfRows()-1 || characterPositionColumn-1 >maze.getNumberOfColumns()-1 || characterPositionRow <0 || characterPositionColumn-1 <0)  {
+                musicFail();
+            }
+            else if(mazeArray[characterPositionRow][characterPositionColumn-1] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow;
+                characterPositionColumn = characterPositionColumn - 1;
+            }
+        }
+        else if(CurentY >characterPositionRow+1){
+            if(characterPositionRow+1 > maze.getNumberOfRows()-1||  characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow+1 < 0 ||characterPositionColumn < 0 )  {
+                musicFail();
+            }
+
+            else if(mazeArray[characterPositionRow+1][characterPositionColumn] == 1){
+                musicFail();
+
+            }
+            else{
+                characterPositionRow = characterPositionRow + 1;
+                characterPositionColumn = characterPositionColumn;
+            }
+        }
+        else if(CurentY <characterPositionRow-1){
+            if(characterPositionRow-1 > maze.getNumberOfRows()-1 || characterPositionColumn > maze.getNumberOfColumns()-1 || characterPositionRow-1 <0 ||characterPositionColumn<0)  {
+                musicFail();
+            }
+
+            else if(mazeArray[characterPositionRow-1][characterPositionColumn] == 1){
+                musicFail();
+            }
+            else{
+                characterPositionRow = characterPositionRow - 1;
+                characterPositionColumn = characterPositionColumn;
+            }
+
+        }
+        E.consume();
+        setChanged();
+        notifyObservers();
+
+
 
     }
+    */
 
 
     public Maze getMaze(){

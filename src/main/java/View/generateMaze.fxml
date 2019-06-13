@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="301.0" prefWidth="381.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
+<AnchorPane prefHeight="301.0" prefWidth="381.0" stylesheets="@ViewStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.generateMazeController">
    <children>
       <VBox layoutX="180.0" layoutY="38.0" prefHeight="122.0" prefWidth="157.0">
          <children>

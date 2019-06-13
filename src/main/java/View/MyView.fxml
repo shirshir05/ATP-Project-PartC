@@ -70,7 +70,7 @@
                </VBox.margin></Label>
             <!--<Pane fx:id="pane" prefHeight="450.0" prefWidth="600.0" nodeOrientation="INHERIT">-->
                <!--<children>-->
-                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" onMouseDragged="#moveWitheMouse" imageFileNameEnd="resources/Images/FinishMaze.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
+                      <MazeDisplayer fx:id="mazeDisplayer" height="450.0" imageFileNameCharacter="resources/Images/square_princess_.png" imageFileNameEnd="resources/Images/FinishMaze.png" imageFileNamePrince="resources/Images/dragon_and_knight_.png" imageFileNameSolution="resources/Images/heart.png" imageFileNameWall="resources/Images/trees.png" nodeOrientation="INHERIT" onMouseClicked="#mazeMouseClicked" width="600.0" />
                <!--</children>-->
             <!--</Pane>-->
          </children>

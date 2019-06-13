@@ -32,13 +32,13 @@ MenuBar:hover{
 
 #Help1,#Help2,#Help3,#Help4,#Help5,#Help6,#Help7,#Help8{
     -fx-font-size: 18px;
-    -fx-text-fill: #FFFFF;
+    -fx-text-fill: #ffffff;
     -fx-start-margin: 15;
 }
 
 #Help21{
     -fx-font-size: 22px;
-    -fx-text-fill: #FFFFF;
+    -fx-text-fill: #ffffff;
     -fx-start-margin: 15;
 }
 
@@ -51,7 +51,7 @@ MenuBar:hover{
 
 #head,#help41,#help5,#help8,#help27,#help11{
     -fx-font-size: 14px;
-    -fx-text-fill: #fffff;
+    -fx-text-fill: #ffffff;
 }
 
 

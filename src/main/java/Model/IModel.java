@@ -1,6 +1,7 @@
 package Model;
 
 import algorithms.mazeGenerators.Maze;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -21,5 +22,5 @@ public interface IModel {
     void createFileFromDB(String fileName);
     void saveMaze();
 
-    void keyPressedMouse(MouseEvent e);
+   // void keyPressedMouse(DragEvent e, double Height, double Width);
 }

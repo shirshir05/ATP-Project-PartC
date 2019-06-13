@@ -77,6 +77,7 @@ public class StartWindowsController extends AController {
         currentStage.setTitle("MAZES & DRAGONS");
         SetStageCloseEvent(currentStage);
         currentStage.show();
+        MyViewController.NewMazeMouseClicked();
 
     }
 

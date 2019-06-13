@@ -13,7 +13,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         FXMLLoader loader = new FXMLLoader();
-        System.out.println(getClass().getResource("..").toString() );
         Parent root = loader.load(getClass().getResource("/View/StartWindows.fxml").openStream());
         primaryStage.setTitle("MAZES & DRAGONS");
         Scene scene = new Scene(root, 590, 402);

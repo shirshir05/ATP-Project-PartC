@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -59,22 +60,14 @@ public class MyViewController extends AController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //Set Binding for Properties
         musicBackground();
-        BorderPane.prefWidthProperty().bind(getStage().widthProperty().multiply(0.9));
-        BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));
+        BorderPane.prefWidthProperty().bind(getStage().widthProperty().multiply(0.9));//0.9
+        BorderPane.prefHeightProperty().bind(getStage().heightProperty().multiply(0.7));//0.7
         VBox.prefWidthProperty().bind(BorderPane.prefWidthProperty());
         VBox.prefHeightProperty().bind(BorderPane.prefHeightProperty()/*.multiply(0.5)*/);
         //pane.prefWidthProperty().bind(VBox.prefWidthProperty());
         //pane.prefHeightProperty().bind(VBox.prefHeightProperty());
         mazeDisplayer.widthProperty().bind(/*pane*/BorderPane.prefWidthProperty());
         mazeDisplayer.heightProperty().bind(/*pane*/BorderPane.prefHeightProperty());
-
-    }
-
-
-    private void initi(){
-
-        Rotate x;
-        Rotate Y;
 
     }
 
@@ -88,16 +81,6 @@ public class MyViewController extends AController implements Initializable {
         });
     }
 
-    public static double clamp( double value, double min, double max) {
-
-        if( Double.compare(value, min) < 0)
-            return min;
-
-        if( Double.compare(value, max) > 0)
-            return max;
-
-        return value;
-    }
     //</editor-fold>
 
     public void NewMazeMouseClicked() throws IOException {
@@ -107,9 +90,6 @@ public class MyViewController extends AController implements Initializable {
         Stage stage = new Stage();
         Scene s = new Scene(root2,381,301);
         stage.setScene(s);
-
-
-
 
         //definition generateMazeController and MyViewModel Observer
         generateMazeController generateMazeController = new generateMazeController();
@@ -154,14 +134,15 @@ public class MyViewController extends AController implements Initializable {
         });
         // thr princes get to ths end
         if(characterPositionRow ==  maze.getGoalPosition().getRowIndex() && characterPositionColumn == maze.getGoalPosition().getColumnIndex()){
+            Media musicSound = new Media(getClass().getResource("/Audio/Success Sound Effects All Sounds.mp3").toString());
+            MediaPlayer musicSound1 = new MediaPlayer(musicSound);
+            musicSound1.setVolume(0.5);
+            musicSound1.play();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Love Wins!");
             alert.setHeaderText("You've Reached the End - Very Good");
             alert.show();
-            Media musicSound = new Media(getClass().getResource("/Audio/Success Sound Effects All Sounds.mp3").toString());
-             MediaPlayer musicSound1 = new MediaPlayer(musicSound);
-            musicSound1.setVolume(0.5);
-            musicSound1.play();
+
         }
 
         //this.characterPositionRow.set(characterPositionRow + "");
@@ -282,6 +263,8 @@ public class MyViewController extends AController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Help");
         Scene s = new Scene(root3,570,609);
+        s.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
+
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -297,6 +280,8 @@ public class MyViewController extends AController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Properties");
         Scene s = new Scene(root3,464,319);
+        s.getStylesheets().add(getClass().getResource("../View/ViewStyle.css").toExternalForm());
+
         stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
         stage.setScene(s);
@@ -322,11 +307,12 @@ public class MyViewController extends AController implements Initializable {
         }
     }
 
-
-    public void moveWitheMouse(MouseEvent eventHandler){
-        MyViewModel.keyPressedMouse(eventHandler);
+/*
+    public void moveWitheMouse(DragEvent eventHandler){
+        MyViewModel.keyPressedMouse(eventHandler,mazeDisplayer.getHeight(),mazeDisplayer.getWidth());
 
     }
+*/
     //-------------------------ZOOM--------------------//
 
     public void zoomScroll(ScrollEvent event){

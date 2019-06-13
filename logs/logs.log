@@ -59,3 +59,27 @@
 2019.06.12 19:25:43.894 INFO  Model.MyModel - Solve Maze server started
 2019.06.12 19:25:58.087 INFO  Model.MyModel - client start DESKTOP-B41N7N6/132.73.218.217 and call to port 5400
 2019.06.12 19:26:32.691 INFO  Model.MyModel - servers stopped
+2019.06.13 09:46:12.201 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:46:12.206 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:46:53.210 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:46:53.213 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:46:58.466 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
+2019.06.13 09:47:04.320 INFO  Model.MyModel - servers stopped
+2019.06.13 09:50:00.692 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:50:00.697 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:51:34.674 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:51:34.678 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:51:40.416 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
+2019.06.13 09:52:03.152 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
+2019.06.13 09:52:27.323 INFO  Model.MyModel - servers stopped
+2019.06.13 09:56:42.746 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:56:42.749 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:56:47.813 INFO  Model.MyModel - servers stopped
+2019.06.13 09:57:17.043 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:57:17.046 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:57:22.106 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
+2019.06.13 09:57:56.814 INFO  Model.MyModel - servers stopped
+2019.06.13 09:59:51.638 INFO  Model.MyModel - Maze Generating server started
+2019.06.13 09:59:51.641 INFO  Model.MyModel - Solve Maze server started
+2019.06.13 09:59:54.560 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
+2019.06.13 10:00:05.465 INFO  Model.MyModel - servers stopped
