@@ -229,7 +229,7 @@ public class MyViewController extends AController implements Initializable {
     // -----------------------------music------------------------------//
     public void musicBackground()
     {
-        Media musicFile = new Media(getClass().getResource("/Audio/Relaxing Video Game Music for 3 Hours (Vol. 1) (mp3cut.net).m4a").toString());
+        Media musicFile = new Media(getClass().getResource("/Audio/soundGame.m4a").toString());
         mediaplayerBackground = new MediaPlayer(musicFile);
         mediaplayerBackground.play();
         mediaplayerBackground.setVolume(0.1);
