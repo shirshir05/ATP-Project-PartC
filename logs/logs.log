@@ -103,3 +103,11 @@
 2019.06.13 17:30:28.201 INFO  Model.MyModel - Solve Maze server started
 2019.06.13 17:30:32.236 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.137.1 and call to port 5400
 2019.06.13 17:30:41.789 INFO  Model.MyModel - servers stopped
+2019.06.15 12:16:29.118 INFO  Model.MyModel - Maze Generating server started
+2019.06.15 12:16:29.141 INFO  Model.MyModel - Solve Maze server started
+2019.06.15 12:16:36.391 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/192.168.1.18 and call to port 5400
+2019.06.15 12:17:08.384 INFO  Model.MyModel - servers stopped
+2019.06.15 12:17:21.830 INFO  Model.MyModel - Maze Generating server started
+2019.06.15 12:17:21.834 INFO  Model.MyModel - Solve Maze server started
+2019.06.15 12:17:24.712 INFO  Model.MyModel - client start LAPTOP-KVKROFMN/127.0.0.1 and call to port 5400
+2019.06.15 12:17:44.728 INFO  Model.MyModel - servers stopped
