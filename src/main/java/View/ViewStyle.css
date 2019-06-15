@@ -1,0 +1,138 @@
+.root {
+    -fx-background-color:linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+Alert{
+    -fx-background-color:linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+#menuItem1, #menuItem2,#menuItem3,#menuItem4 ,MenuBar{
+    -fx-background-color: #DEA468;
+    /*-fx-text-fill: #ffffff;*/
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 1px;
+    -fx-cursor: pointer;
+    -fx-content-display: CENTER;
+}
+
+MenuBar:hover{
+    -fx-background-color: #DEA468;
+    -fx-text-fill: #ffffff;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 1px;
+    -fx-cursor: pointer;
+    -fx-content-display: CENTER;
+}
+
+#Help1,#Help2,#Help3,#Help4,#Help5,#Help6,#Help7,#Help8{
+    -fx-font-size: 18px;
+    -fx-text-fill: #ffffff;
+    -fx-start-margin: 15;
+}
+
+#Help21{
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-start-margin: 15;
+}
+
+#help1,#help2,#help4,#help6,#help7,#help9,#help10,#help12,#help13,#help14,#help15,#help16,#help17,#help18,#help19,#help20,#help21,#help22,#help23,#help24,#help25,#help26{
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50;
+    -fx-start-margin: 15;
+
+}
+
+#head,#help41,#help5,#help8,#help27,#help11{
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff;
+}
+
+
+Label{
+   /* -fx-font-family: "Calibri";*/
+    -fx-font-size: 27px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-color: #2C3E50;*/
+}
+
+#rows, #columns{
+    /* -fx-font-family: "Calibri";*/
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-color: #2C3E50;*/
+}
+
+#explanation1, #explanation2, #explanation3{
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50;
+}
+
+#opening1, #opening2, #opening3{
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    /*-fx-color: #2C3E50;*/
+}
+
+Button:hover{
+    /*
+    -fx-width: 100px;
+    -fx-padding: 10px 5px;
+    -fx-margin: 10px 5px;
+    -fx-color: white;
+    -fx-border: 0 none;
+    */
+    -fx-background-color: #27AE60;
+    -fx-text-fill: #ffffff;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 1px;
+    -fx-cursor: pointer;
+    -fx-content-display: CENTER;
+
+}
+
+Button{
+
+    -fx-background-color: #ffffff;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-font-weight: bold;
+    -fx-border-radius: 1px;
+    -fx-cursor: pointer;
+    -fx-content-display: CENTER;
+
+}
+
+MazeDisplayer {
+/*
+    -fx-text-align: center;
+    -fx-position: relative;
+    -fx-background-color: #ffffff;
+    !*
+    border: 0 none;
+    box-sizing: border-box;
+    -fx-margin: 50px auto;
+    *!
+    -fx-background-radius: 3px;
+    !*-fx-box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*!
+
+    !*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0, 0.4), 0, 0, 15, 1);*!
+    -fx-padding: 20px 30px;
+
+    !*stacking fieldsets above each other*!
+    -fx-position: relative;*/
+}

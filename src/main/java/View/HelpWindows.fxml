@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="548.0" prefWidth="570.0"  xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HelpWindowsController">
+    <children>
+          <VBox prefHeight="609.0" prefWidth="570.0">
+              <children>
+            <Label fx:id="help5" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="570.0" text="Welcome to the game!">
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help8" alignment="CENTER" prefHeight="21.0" prefWidth="559.0" text="YOUR MISSION: Save the prince from the cruel dragon!">
+               <VBox.margin>
+                  <Insets bottom="4.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help9" prefHeight="18.0" prefWidth="559.0" text="Your character is represented by a princess.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help10" prefWidth="559.0" text="The prince (target) is represented by a figure of a prince and a dragon.">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help11" prefWidth="559.0" text="You can move the princess by the keyboard number pad and arrows:">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help12" prefWidth="559.0" text="1 - down and left (diagonal)">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help7" contentDisplay="CENTER" layoutX="10.0" layoutY="60.0" prefWidth="559.0" text="2 or DOWN arrow - down" BorderPane.alignment="TOP_LEFT">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help13" prefWidth="559.0" text="3 - down and right (diagonal)">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help14" prefWidth="559.0" text="4 or LEFT arrow - left">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help15" prefWidth="559.0" text="6 or RIGHT arrow - right">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help16" prefWidth="559.0" text="7 - left and up (diagonal)">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help17" prefWidth="559.0" text="8 or UP arrow - up">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help18" prefWidth="559.0" text="9 - right and up (diagonal)">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help41" prefHeight="17.0" prefWidth="559.0" text="Buttons and Menus:">
+               <VBox.margin>
+                  <Insets left="12.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help4" prefHeight="17.0" prefWidth="559.0" text="Option button - contains a Properties file for the settings of the application.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help19" prefWidth="559.0" text="SHOW PATH TO PRINCE button - show or hide the solution path to the Prince.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help20" prefWidth="559.0" text="MUSIC ON / OFF button - switch the music on or off.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help21" prefWidth="559.0" text="File menu - contains three different options:">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help22" prefWidth="559.0" text="1. New Maze - creates a new maze according to sizes as defined.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="7.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help23" prefHeight="21.0" prefWidth="559.0" text="2. Save maze - saves the existing maze by timestamp.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="7.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help24" prefHeight="21.0" prefWidth="559.0" text="3. Load maze - loads a maze from the saved mazes.">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="7.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help25" prefHeight="21.0" prefWidth="559.0" text="New Maze button - creates a new maze according to sizes as defined.">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help2" layoutX="26.0" layoutY="499.0" prefHeight="21.0" prefWidth="559.0" text="If maze sizes inserted do not match minimum requirements, a maze sized 10X10 will be created">
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help1" layoutX="26.0" layoutY="499.0" prefHeight="21.0" prefWidth="559.0" text="About button - Explanation of the application.">
+               <padding>
+                  <Insets bottom="3.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="3.0" left="16.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="help26" prefHeight="21.0" prefWidth="559.0" text="Exit button - Exit the game.">
+               <VBox.margin>
+                  <Insets bottom="3.0" left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="help27" alignment="CENTER" prefHeight="20.0" prefWidth="570.0" text="We're here to help you get through your mission - good luck!">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+              </children>
+              <padding>
+                  <Insets top="50.0" />
+              </padding>
+          </VBox>
+          <Label fx:id="head" alignment="CENTER" prefHeight="49.0" prefWidth="570.0" text="MAZES &amp; DRAGONS" AnchorPane.topAnchor="5.0">
+              <font>
+                  <Font size="25.0" />
+              </font>
+          </Label>
+    </children>
+
+</AnchorPane>

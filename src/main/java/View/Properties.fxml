@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="319.0" prefWidth="353.0"  xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PropertiesController">
+
+    <children>
+          <Label alignment="CENTER" prefHeight="54.0" prefWidth="464.0" text="PROPERTIES" AnchorPane.topAnchor="15.0">
+              <font>
+                  <Font size="25.0" />
+              </font>
+         <padding>
+            <Insets bottom="15.0" />
+         </padding>
+          </Label>
+          <VBox prefHeight="319.0" prefWidth="464.0">
+              <children>
+                  <Label fx:id="Help23" alignment="CENTER" contentDisplay="LEFT" prefHeight="39.0" prefWidth="517.0" />
+                  <Label fx:id="Help7" contentDisplay="LEFT" prefHeight="42.0" prefWidth="385.0" text="Maze generation algorithm:">
+                      <VBox.margin>
+                          <Insets left="16.0" />
+                      </VBox.margin></Label>
+            <Label fx:id="Help6" contentDisplay="LEFT" layoutX="26.0" layoutY="99.0" prefHeight="69.0" prefWidth="393.0" text="Randomized Prim's algorithm">
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+            </Label>
+                  <Label fx:id="Help8" contentDisplay="LEFT" prefHeight="42.0" prefWidth="340.0" text="Solving maze algorithm:">
+                      <VBox.margin>
+                          <Insets left="16.0" />
+                      </VBox.margin></Label>
+            <Label fx:id="Help5" contentDisplay="LEFT" layoutX="26.0" layoutY="157.0" prefHeight="39.0" prefWidth="365.0" text="Best First search">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin></Label>
+              </children>
+              <padding>
+                  <Insets top="50.0" />
+              </padding>
+          </VBox>
+    </children>
+
+</AnchorPane>

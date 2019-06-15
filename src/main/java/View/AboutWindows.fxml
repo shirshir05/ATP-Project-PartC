@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="260.0" prefWidth="495.0"  xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AboutController">
+    <children>
+          <VBox prefHeight="333.0" prefWidth="495.0">
+              <children>
+                  <Label fx:id="Help2" prefHeight="27.0" prefWidth="445.0" text="Created by:">
+               <VBox.margin>
+                  <Insets left="16.0" top="25.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="Help21" alignment="CENTER" layoutX="26.0" layoutY="85.0" prefHeight="44.0" prefWidth="503.0" text="Ortal Parpara &amp; Shir Cohen">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </Label>
+                  <Label fx:id="Help5" contentDisplay="LEFT" prefHeight="21.0" prefWidth="445.0" text="Final project in Advanced Topics in Programming">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+                  <Label fx:id="Help3" contentDisplay="LEFT" layoutX="10.0" layoutY="60.0" prefHeight="17.0" prefWidth="445.0" text="Software and Information Systems Engineering,">
+               <VBox.margin>
+                  <Insets left="16.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" top="7.0" />
+               </padding>
+            </Label>
+                  <Label fx:id="Help4" contentDisplay="LEFT" prefWidth="445.0" text="Ben Gurion University">
+               <padding>
+                  <Insets left="16.0" />
+               </padding>
+            </Label>
+              </children>
+              <padding>
+                  <Insets top="50.0" />
+              </padding>
+          </VBox>
+          <Label alignment="CENTER" prefHeight="39.0" prefWidth="495.0" text="ABOUT" AnchorPane.topAnchor="15.0">
+              <font>
+                  <Font size="25.0" />
+              </font>
+          </Label>
+    </children>
+
+</AnchorPane>
