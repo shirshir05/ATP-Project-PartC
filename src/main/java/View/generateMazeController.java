@@ -2,13 +2,8 @@ package View;
 
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Observable;
-
-import static com.sun.corba.se.impl.util.RepositoryId.cache;
 
 public class generateMazeController extends AController {
 
@@ -46,5 +41,6 @@ public class generateMazeController extends AController {
     @Override
     public void update(Observable o, Object arg) {
         setChanged();
-        notifyObservers();    }
+        notifyObservers();
+    }
 }
