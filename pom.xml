@@ -24,7 +24,6 @@
                 <directory>src/main/java</directory>
             </resource>
         </resources>
-
     </build>
     <dependencies>
         <dependency>

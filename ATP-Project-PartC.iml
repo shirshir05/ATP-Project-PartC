@@ -24,5 +24,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="ATPProjectJAR" level="project" />
   </component>
 </module>
